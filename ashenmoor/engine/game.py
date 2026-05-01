@@ -72,7 +72,7 @@ def go(character: str,
         locations[character] = dest_id
         return rooms[dest_id]
     # No exit — check if any exit failed or there were none at all
-    return "&yAlas, you cannot go that way. . . .&N"
+    return "&NAlas, you cannot go that way. . . ."
 
 
 # ── GameState ─────────────────────────────────────────────────────────────────
