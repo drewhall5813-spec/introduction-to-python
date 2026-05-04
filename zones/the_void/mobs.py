@@ -34,6 +34,33 @@ TEMPLATES: dict[str, dict] = {
         "description": (
             "This large purple and black dragon seems to have a shroud of darkness around it. Its eyes appear to be pits of blackness"
         ),
+        "race":     "Human",
+        "class":    "Student",
+        "level":    1,
+        "stats":    [60, 65, 60, 80, 70, 75],
+        "aggro":    False,
+        "wander":   True,
+    },
+      
+        "weasel": {
+        "name":             "weasel",
+        "key_words":        ("weasel"),
+        "room_description": "&wA Weasel floats here randomly.&N",
+        "description": (
+            "It is very soft and chubby.\n"
+            "It seems like it standing on some cheese."
+        ),
+        "race":     "Human",
+        "class":    "Student",
+        "level":    1,
+        "stats":    [60, 65, 60, 80, 70, 75],
+        "aggro":    False,
+        "wander":   True,
+    },
+        "my_friend": {
+        "name":             "a wandering student",
+        "key_words":        ("student", "wandering"),
+        "room_description": "&wA wandering student meanders about aimlessly.&N",
         "race": "non-humanoid",
         "class": "",
         "level": 50,
