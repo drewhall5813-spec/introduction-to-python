@@ -27,6 +27,23 @@ TEMPLATES: dict[str, dict] = {
         "aggro": False,
         "wander": True,
     },
+    "escbaalion": {
+        "name": "Escbaalion",  # The c is silent
+        "key_words": ("Escbaalion"),
+        "room_description": "&gEscbaalion&N &wlicks his eyeball.&N",
+        "description": (
+            "A humanoid lizard. He is &gdark-green&N, and has a short\n"
+            "&Ccyan sail&N that runs from the top of his head to the end of his tail.\n"
+            "He wears an almost &Xblack cloak&N, but wears &Rno&N pants.\n"
+            "A &ybrown leather satchel&N is slung over his shoulder.\n"
+            "Only &ghe&N knows what is inside his &ybag&N. . . ."
+        ),
+        "race": "Lizaroid",
+        "class": "Sorcerer",
+        "level": 10,
+        "stats": [80, 50, 200, 90, 90, 70],
+    },
+    },
     "void_dragon": {
         "name": "Inanis the Void Dragon",
         "key_words": ("inanis"),
