@@ -217,7 +217,7 @@ TEMPLATES: dict[str, dict] = {
         "key_words":        ("puma"),
         "room_description": "&wA sand puma aimlesly being taken into the quick sand.&N",
         "description": (
-            "rockyish sand color and yellow.\n"
+            "rockyish sand color with yellow.\n"
             "puma +."
         ),
         "race":     "pumaish",
