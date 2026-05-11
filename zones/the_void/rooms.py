@@ -69,6 +69,13 @@ ROOMS: dict[int, Room] = {
         {
             "number": 4,
             "name": "&MThe Great Gathering&N",
+<<<<<<< HEAD
+            "description": "       All of our wonderful mods"
+        }
+            
+        
+    )
+=======
             "description": "    All of our wonderful mobs are in this room\narern't they so pretty!",
             "indoors": False,
             "terrain": "no ground",
@@ -91,7 +98,9 @@ ROOMS: dict[int, Room] = {
                 M.spawn("Lucas"),
                 M.spawn("escbaalion"),
                 M.spawn("wandering_student"),
+                M.spawn("the cheese monster"),
             ],
         }
     ),
+>>>>>>> 34fcd46834ed34095f4816862f083b903b8e0d31
 }
