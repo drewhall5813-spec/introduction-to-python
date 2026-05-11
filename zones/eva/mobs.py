@@ -35,13 +35,29 @@ TEMPLATES: dict[str, dict] = {
             "A small &rkobold&n stands here looking through a &ybag&N, it seems to be filled with various different types of &gm&Go&gs&Gs&N.\n"
             "His scales are &rgarnet red&N."
         ),
-        "race": "Humanoid",
+        "race": "Kobold",
         "class": "rouge",
         "level": 1,
         "stats": [40, 50, 40, 30, 20, 40],
         "aggro": False,
         "wander": False,
-    }
+    },
+
+    "blank_templet": {
+        "name": "name",
+        "key_words": ("1", "2"),
+        "room_description": "",
+        "description": (
+            "this is just so i can ctrl c  ctrl v".\n"
+            "hi"
+        ),
+        "race": "race",
+        "class": "class",
+        "level": 5,
+        "stats": [60, 75, 65, 80, 70, 75],
+        "aggro": False,
+        "wander": True,
+    },
 }
 
 # Module-level spawn — rooms.py calls  M.spawn("void_guardian")
