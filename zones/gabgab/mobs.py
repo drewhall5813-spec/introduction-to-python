@@ -12,7 +12,7 @@ from ashenmoor.world import Mob
 from ashenmoor.world.zone import make_spawner
 
 TEMPLATES: dict[str, dict] = {
-    "wandering_student": {
+    "wandering cheezi student": {
         "name": "a wandering student",
         "key_words": ("student", "wandering"),
         "room_description": "&wA wandering student meanders about aimlessly.&N",
@@ -26,7 +26,43 @@ TEMPLATES: dict[str, dict] = {
         "stats": [60, 65, 60, 80, 70, 75],
         "aggro": False,
         "wander": True,
-    }
+    },
+
+
+
+
+        "the cheese monster": {
+        "name": "the cheese monster",
+        "key_words": ("cheese", "monster"),
+        "room_description": "&Wthe&N &yc&Yh&N&ye&Ye&N&ys&Ye&N &bmonster &Wsleeps here&N",
+        "description": (
+            "a cheese monster thinking into space "
+            "most likely thinking about &msleep..."
+        ),
+        "race": "cheese",
+        "class": "scary guy",
+        "level": "29",
+        "stats": [46, 59, 65, 55, 75, 80],
+        "aggro": False,
+        "wander": False,
+    },
+
+     "the cheese sniffer": {
+        "name": "the &yc&Yh&N&ye&Ye&N&ys&Ye&N sniffer",
+        "key_words": ("cheese", "sniffer"),
+        "room_description": "&Wthe&N &yc&Yh&N&ye&N&ys&Ye&N &bsniffer &Wsniffs around here&N",
+        "description": (
+            "a cheese sniffer sniffing around "
+            "most likely sniffing about &msleep..."
+        ),
+        "race": "cheese",
+        "class": "sniffr guy",
+        "level": "14",
+        "stats": [10 ,48 ,23 ,92 ,16 ,82 ],
+        "aggro": False,
+        "wander": True,
+        },
+
 }
 
 # Module-level spawn — rooms.py calls  M.spawn("void_guardian")
