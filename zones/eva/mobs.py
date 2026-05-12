@@ -1,5 +1,5 @@
 """
-zones.the_void.mobs
+zones.the_planes.mobs
 ───────────────────
 Mob templates for The Void zone.
 
@@ -48,7 +48,7 @@ TEMPLATES: dict[str, dict] = {
         "key_words": ("1", "2"),
         "room_description": "",
         "description": (
-            "this is just so i can ctrl c  ctrl v".\n"
+            "this is just so i can ctrl c  ctrl v.\n"
             "hi"
         ),
         "race": "race",

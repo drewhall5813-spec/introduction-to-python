@@ -1,5 +1,5 @@
 """
-zones.the_void.rooms
+zones.the_planes.rooms
 ────────────────────
 Room definitions for The Void zone.  Vnum range: 1 – 99.
 
