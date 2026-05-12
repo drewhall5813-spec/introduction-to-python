@@ -29,5 +29,19 @@ TEMPLATES: dict[str, dict] = {
     }
 }
 
+"void_dragon": {
+        "name": "Inanis the Void Dragon",
+        "key_words": ("inanis"),
+        "room_description": "A large &Mdragon&N stands here looking around &Ragitated&N.",
+        "description": (
+            "This large purple and black dragon seems to have a shroud of darkness around it. Its eyes appear to be pits of blackness"
+        ),
+        "race": "Dragon",
+        "class": "Watcher",
+        "level": 50,
+        "stats": [100, 100, 100, 100, 100, 100],
+        "aggro": False,
+        "wander": True,
+    },
 # Module-level spawn — rooms.py calls  M.spawn("void_guardian")
 spawn = make_spawner(TEMPLATES, lambda: Mob)
