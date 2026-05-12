@@ -201,7 +201,7 @@ TEMPLATES: dict[str, dict] = {
         "race": "Human",
         "class": "Comedian",
         "level": 10,
-        "stats": [0, 16, 60, 32, 7, 7],
+        "stats": [0, 16, 60, 32, 7, 90],
         "aggro": True,
         "wander": True,
     },
