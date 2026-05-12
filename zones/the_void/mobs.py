@@ -81,7 +81,7 @@ TEMPLATES: dict[str, dict] = {
         "class": "Principal",
         "level": 70,
         "stats": [71, 75, 80, 84, 79, 73],
-        "aggro": True,
+        "aggro": "True,
         "wander": False,
     },
     "Red kobold": {
@@ -99,32 +99,25 @@ TEMPLATES: dict[str, dict] = {
         "aggro": False,
         "wander": False,
     },
-    "Shrimpman": {
-        "name": "Shrimpman",
-        "key_words": ("shrimp"),
-        "room_description": "&wA Shrimpman is backflipping.&N",
-        "description": ("very pink.\n" "Shrimp."),
-        "race": "humanoid",
-        "class": "monk",
-        "level": 1,
-        "stats": [60, 65, 60, 80, 70, 75],
-        "aggro": False,
-        "wander": True,
-    },
+    
     "weasel": {
         "name": "weasel",
         "key_words": ("weasel"),
-        "room_description": "&wA &YWeasel&N floats here randomly.&N",
-        "description": ("
+        "room_description": "&wA Weasel floats here randomly.&N",
+        "description": (
             "It is very soft and chubby.\n",
             "It seems like it standing on some cheese."
+
         ),
-        "race":     "animal",
-        "class":    "weasel",
-        "level":    50,
-        "stats":    [60, 100, 60, 100, 75, 100],
-        "aggro":    False,
-        "wander":   False,
+
+        "race": "non_human",
+        "class": "Weasel",
+        "level": 50,
+        "stats": [100, 100, 100, 90, 90, 100],
+        "aggro": False,
+        "wander": False,
+
+
     },
     "Nessie": {
         "name": "Nessie",
@@ -208,7 +201,7 @@ TEMPLATES: dict[str, dict] = {
         "race": "Human",
         "class": "Comedian",
         "level": 10,
-        "stats": [0, 16, 60, 32, 7, 7],
+        "stats": [0, 16, 60, 32, 7, 90],
         "aggro": True,
         "wander": True,
     },

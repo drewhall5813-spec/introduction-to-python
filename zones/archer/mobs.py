@@ -26,6 +26,21 @@ TEMPLATES: dict[str, dict] = {
         "stats": [60, 65, 60, 80, 70, 75],
         "aggro": False,
         "wander": True,
+    
+    "Illrigger": {
+        "name": "Illrigger",
+        "key_words": ("Illrigger"),
+        "room_description": "&GIllriggers &Wwander these parts, searching for any intruders.&N",
+        "description": (
+            "&MIllrigger Mage, &Wit is clearly mastering the arts of &xDark Magic&N."
+        ),
+        "race": "Human",
+        "class": "Illrigger",
+        "level": 39,
+        "stats": [75, 92, 53, 72, 85, 10],
+        "aggro": True,
+        "wander": True,
+        }
     }
 }
 
