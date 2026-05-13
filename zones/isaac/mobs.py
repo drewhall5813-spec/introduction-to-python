@@ -13,14 +13,14 @@ from ashenmoor.world.zone import make_spawner
 
 TEMPLATES: dict[str, dict] = {
     "escbaalion": {
-        "name": "Escbaalion",  # The c is silent
+        "name": "&gEscbaalion&N",  # The c is silent
         "key_words": ("Escbaalion"),
         "room_description": "&gEscbaalion&N &wlicks his eyeball.&N",
         "description": (
-            "A humanoid lizard. He is &gdark-green&N, and has a short\n"
-            "&Ccyan sail&N that runs from the top of his head to the end of his tail.\n"
-            "He wears an almost &Xblack cloak&N, but wears &Rno&N pants.\n"
-            "A &ybrown leather satchel&N is slung over his shoulder.\n"
+            "A humanoid lizard. He is &gdark-green&N, and has a short"
+            "&Ccyan sail&N that runs from the top of his head to the end of his tail."
+            "He wears an almost &Xblack cloak&N, but wears &Rno&N pants."
+            "A &ybrown leather satchel&N is slung over his shoulder."
             "Only &ghe&N knows what is inside his &ybag&N. . . ."
         ),
         "race": "Lizaroid",
@@ -28,8 +28,20 @@ TEMPLATES: dict[str, dict] = {
         "level": 10,
         "stats": [80, 50, 200, 90, 90, 70],
         "aggro": True,
+        "wander": False,
+    },
+    "unicorn_blob": {
+        "name": "&MUnicorn Blob&N",
+        "key_words": ("unicorn", "blob"),
+        "room_description": "&MUnicorn Blob&N &wwanders without a care in the world.&N",
+        "description": ("Remind me to finish description."),
+        "race": "Slime",
+        "class": None,
+        "level": 7,
+        "stats": [70, 50, 160, 20, 20, 100],
+        "aggro": False,
         "wander": True,
-    }
+    },
 }
 
 spawn = make_spawner(TEMPLATES, lambda: Mob)

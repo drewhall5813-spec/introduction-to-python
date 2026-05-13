@@ -18,7 +18,7 @@ ROOMS: dict[int, Room] = {
     1: Room(  # <-- wouldn't this be 15001?
         {
             "number": 15001,
-            "name": "The Seomra",
+            "name": "&gThe Seomra&N",  # Irish for Room
             "description": "This room is covered in &Yyellow warning tape&N and littered with &ytraffic cones&N.",
             "indoors": False,
             "terrain": "no ground",
@@ -31,10 +31,15 @@ ROOMS: dict[int, Room] = {
                 # {"direction": "down", "roomId": 1},
             ],
             "objects": [
-                O.spawn("silken_sack"),
-                O.spawn("windsong"),
+                O.spawn("traffic_cone"),
+                O.spawn("traffic_cone"),
+                O.spawn("traffic_cone"),
+                O.spawn("traffic_cone"),
             ],
-            "mobs": [M.spawn("escbaalion")],
+            "mobs": [
+                M.spawn("escbaalion"),
+                M.spawn("unicorn_blob"),
+            ],
         }
     ),
 }
