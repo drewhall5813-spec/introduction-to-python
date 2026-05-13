@@ -81,7 +81,7 @@ TEMPLATES: dict[str, dict] = {
         "class": "Principal",
         "level": 70,
         "stats": [71, 75, 80, 84, 79, 73],
-        "aggro": "True,
+        "aggro": True,
         "wander": False,
     },
     "Red kobold": {
