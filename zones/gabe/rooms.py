@@ -32,9 +32,9 @@ ROOMS: dict[int, Room] = {
             ],
             "objects": [
                 O.spawn("cheese wheel"),
-                O.spawn("silken_sack"),
+                O.spawn("toy cheese"),
             ],
-            "mobs": [M.spawn("cheese monster")],
+            "mobs": [M.spawn("cheese monster"), M.spawn("cheez sniffer"), M.spawn("the cheese spirit")],
         },
     ),
 }

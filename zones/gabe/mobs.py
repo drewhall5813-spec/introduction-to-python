@@ -58,6 +58,21 @@ TEMPLATES: dict[str, dict] = {
         "aggro": False,
         "wander": False,
         },
+    "the cheese spirit": {
+        "name": "the cheese spirit",
+        "key_words": ("cheese", "spirit"),
+        "room_description": "&Wthe&N &yc&Yh&N&ye&N&ys&Ye&N &bspirit &Whaunts this place&N",
+        "description": (
+            "a cheese spirit haunting this place "
+            "most likely haunting cheese monsters &msleep..."
+        ),
+        "race": "cheese",
+        "class": "spirit guy",
+        "level": "42",
+        "stats": [80, 80, 80, 80, 80, 80],
+        "aggro": False,
+        "wander": False,
+        }, 
 
 }
 
