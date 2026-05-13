@@ -12,25 +12,24 @@ from ashenmoor.world import Mob
 from ashenmoor.world.zone import make_spawner
 
 TEMPLATES: dict[str, dict] = {
-    
-    "wandering_student": {
-        "name": "a wandering student",
-        "key_words": ("student", "wandering"),
-        "room_description": "&wA wandering student meanders about aimlessly.&N",
+    "escbaalion": {
+        "name": "Escbaalion",  # The c is silent
+        "key_words": ("Escbaalion"),
+        "room_description": "&gEscbaalion&N &wlicks his eyeball.&N",
         "description": (
-            "A student with a faraway look, clearly lost in thought.\n"
-            "Or possibly just lost."
+            "A humanoid lizard. He is &gdark-green&N, and has a short\n"
+            "&Ccyan sail&N that runs from the top of his head to the end of his tail.\n"
+            "He wears an almost &Xblack cloak&N, but wears &Rno&N pants.\n"
+            "A &ybrown leather satchel&N is slung over his shoulder.\n"
+            "Only &ghe&N knows what is inside his &ybag&N. . . ."
         ),
-        "race": "Human",
-        "class": "Student",
-        "level": 1,
-        "stats": [60, 65, 60, 80, 70, 75],
-        "aggro": False,
+        "race": "Lizaroid",
+        "class": "Sorcerer",
+        "level": 10,
+        "stats": [80, 50, 200, 90, 90, 70],
+        "aggro": True,
         "wander": True,
     }
-
-    
 }
 
-# Module-level spawn — rooms.py calls  M.spawn("void_guardian")
 spawn = make_spawner(TEMPLATES, lambda: Mob)
