@@ -13,6 +13,8 @@ Call spawn(key) to get a fresh independent instance.
 from ashenmoor.world import Object, Item, Weapon
 from ashenmoor.world.zone import make_spawner
 
+# Types of Items: Weapon, Item, Object
+
 TEMPLATES: dict[str, dict] = {
     "traffic_cone": {
         "spawn_as": Weapon,

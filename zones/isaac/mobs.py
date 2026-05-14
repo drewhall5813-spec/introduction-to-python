@@ -30,6 +30,7 @@ TEMPLATES: dict[str, dict] = {
         "aggro": True,
         "wander": False,
     },
+    
     "unicorn_blob": {
         "name": "&MUnicorn Blob&N",
         "key_words": ("unicorn", "blob"),

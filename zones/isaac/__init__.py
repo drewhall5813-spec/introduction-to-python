@@ -14,8 +14,8 @@ from .mobs import TEMPLATES as MOB_TEMPLATES
 from .rooms import ROOMS
 
 ZONE = Zone(
-    name="The Isaac Zone",
-    rooms=ROOMS,
-    object_templates=OBJECT_TEMPLATES,
-    mob_templates=MOB_TEMPLATES,
+    name             = "The Isaac Zone",
+    rooms            = ROOMS,
+    object_templates = OBJECT_TEMPLATES,
+    mob_templates    = MOB_TEMPLATES,
 )
