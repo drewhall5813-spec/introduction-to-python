@@ -14,36 +14,35 @@ from ashenmoor.world import Object, Item, Weapon
 from ashenmoor.world.zone import make_spawner
 
 TEMPLATES: dict[str, dict] = {
-    "green_marker": {
+    " green leaf": {
         "spawn_as":         Object,
-        "name":             "a &ggreen expo marker&N",
-        "key_words":        ("green", "expo", "marker"),
-        "room_description": "a {g&wgreen expo marker&N has been carelessly discarded here.",
-        "description":      "A forest green low-scent dry-erase marker, about half used.",
+        "name":             "a &ggreen&N &Gleaf&N",
+        "key_words":        ("green", "leaf"),
+        "room_description": "a {a green leaf has been carelessly discarded here.",
+        "description":      "A forest green leaf is lying on the ground.",
     },
 
-    "silken_sack": {
-        "spawn_as":         Item,
-        "name":             "a &+rtattered &+csilken sack&N",
-        "key_words":        ("tattered", "silken", "sack"),
-        "room_description": "A &+rtattered &+csilken sack&N lies here, discarded.",
-        "description":      "This sack seems to be in an awful condition.",
-        "weight":           2,
+    "Banana": {
+        "spawn_as":         Object,
+        "name":             " &Ybanana&N",
+        "key_words":        ("banana"),
+        "room_description": "A &Ybannannna&N is hanging of a bush.",
+        "description":      "This banana seems to be very tasty."
     },
-    "windsong" : {
-        "spawn_as":         Weapon,
-        'name': "&+ga &wg&Wl&wi&Wtt&wer&Wi&wng &N&+gelven scimitar&N",
-        'key_words': ('scimitar', 'elven', 'glittering'),
-        'room_description': "&+gA glittering elven scimitar is lying on the ground here.&N",
-        'description': """&+gIts blade encrusted with diamond dust, this magically light
-&+gelven blade glitters in the sunlight and seems to hum softly
-&+gwhen wielded in battle.&N""",
-        "weight":           3,
-        "dice":             "2d8",
-        "hitroll":          2,
-        "damroll":          4,
+    "The Fruit" : {
+        "spawn_as":         Object,
+        'name': "The Fruit",
+        'key_words': ('Fruit'),
+        'room_description': "The Fruit is hanging from a branch on a tree."
+        'description':      "This is the Fruit that adam and eve ate. THis fruit caused the first sin."
     },
-
+    "The Horn" : {
+        "spawn_as":         Object,
+        'name': "Horn",
+        'key_words': ('Horn'),
+        'room_description': "The Horn is on a table in an Israelite tent."
+        'description':      "The Horn has been use to make loud noises while marching around the city of Jericho
+    
 }
 
 # Module-level spawn — rooms.py calls  O.spawn("red_marker")

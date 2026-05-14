@@ -27,6 +27,13 @@ from ashenmoor.engine import GameState
 #from zones.the_void import ZONE as THE_VOID
 from zones.the_void import ZONE as THE_VOID_WORLD
 from zones.damien import ZONE as DAMIEN
+from zones.timothy import ZONE as TIMOTHY
+from zones.asher import ZONE as ASHER
+from zones.gabe import ZONE as GABE
+from zones.the_void import ZONE as THE_VOID
+from zones.charlotte import ZONE as Charlotte
+from zones.wyatt import ZONE as CRYSTAL_CAVERNS
+
 
 def main():
     # ── Characters ────────────────────────────────────────────────────────────
@@ -62,7 +69,19 @@ def main():
     # Load zones — rooms, object templates, and mob templates all merge in
     #state.load_zone(THE_VOID)
     state.load_zone(DAMIEN)
+    state.load_zone(TIMOTHY)
+    state.load_zone(THE_VOID)
+    state.load_zone(Charlotte)
+    #state.load_zone(THE_VOID)
+    state.load_zone(ASHER)
+    state.load_zone(GABE)
+    # state.load_zone(THE_VOID)
+    state.load_zone(JOSHUA)
+    #state.load_zone(THE_VOID)
+    state.load_zone(EVA)
     # state.load_zone(RIVERVIEW)  # add more zones here
+    state.load_zone(CRYSTAL_CAVERNS)
+
 
     # ── Run ───────────────────────────────────────────────────────────────────
     cprint(f"&w{len(state.rooms)} rooms loaded across all zones.&N")
