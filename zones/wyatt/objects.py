@@ -26,7 +26,7 @@ TEMPLATES: dict[str, dict] = {
         "spawn_as":         Weapon,
         'name': "&+ga &ws&Wh&wa&Wrp&we&Ws&wt &N&+grusty karambit knife&N",
         'key_words': ('Raptors', 'Claw', 'knife'),
-        'room_description': "&+gA rusty karambit knife that is a reddish color and folds.&N",
+        'room_description': "&WA rusty&N &Ckarambit knife&N &Wthat is a&N &Rreddish&N color and &Gfolds.&N",
         'description': """&+gIts blade is made of a crystalline structure that has been carefully molded
 &+git has a weird glow whenever danger is near
 &+gor it does it randomly&N""",

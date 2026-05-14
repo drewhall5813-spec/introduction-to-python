@@ -17,7 +17,7 @@ from . import mobs as M
 ROOMS: dict[int, Room] = {
     1: Room(
         {
-            "number": 1,
+            "number": 14,
             "name": "Crystal Caverns",
             "description": "&WIt is a&N dark &Wcave with minimal light coming off of the luminescent&N &Ccrystals&N.\nThe &Ccrystals&N are of &rv&ga&Cr&Bi&Ro&Yu&Gs&N &Wcolors&N",
             "indoors": True,
