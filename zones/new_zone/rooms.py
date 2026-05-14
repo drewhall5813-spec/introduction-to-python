@@ -18,8 +18,8 @@ ROOMS: dict[int, Room] = {
     1: Room(
         {
             "number": 1,
-            "name": "The Void",
-            "description": "There is nothing here but the sound of rushing of wind.\nWe are waiting for the Spirit of God to move over it.",
+            "name": "&CThe Beginning of the World!&N",
+            "description": "",
             "indoors": False,
             "terrain": "no ground",
             "exits": [
