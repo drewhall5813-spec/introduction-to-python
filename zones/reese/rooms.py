@@ -19,7 +19,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 1,
             "name": "&BThe Inn&N",
-            "description": "The local inn of\nWe are waiting for the Spirit of God to move over it.",
+            "description": "The local inn of your ",
             "indoors": True,
             "terrain": "wooden",
             "exits": [
