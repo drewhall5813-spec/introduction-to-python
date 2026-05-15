@@ -31,6 +31,7 @@ ROOMS: dict[int, Room] = {
                 O.spawn("Item_template"),
             ],
             "mobs": [M.spawn("mob_template")]
+                    
         }
      ),
      1: Room(
@@ -45,10 +46,10 @@ ROOMS: dict[int, Room] = {
                 {"direction": "south", "roomId": 2},
             ],
             "objects": [
-                O.spawn("Large_Orange_Cat"),
                 O.spawn("Assorted_Bottles__Full"),
             ],
             "mobs": [M.spawn("fanciful_bard")]
+                    [M.spawn("Large_Orange_Cat")]
         },
         
     ),
