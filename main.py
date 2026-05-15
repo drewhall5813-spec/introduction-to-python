@@ -35,6 +35,12 @@ from zones.charlotte import ZONE as CHARLOTTE
 from zones.wyatt import ZONE as CRYSTAL_CAVERNS
 from zones.joshua import ZONE as JOSHUA
 from zones.eva import ZONE as EVA
+from zones.lindi import ZONE as LINDI
+from zones.drew import ZONE as DREW
+from zones.archer import ZONE as ARCHER
+from zones.isaac import ZONE as ISAAC
+from zones.reese import ZONE as REESE
+from zones.jordan import ZONE as JORDAN
 
 def main():
     # ── Characters ────────────────────────────────────────────────────────────
@@ -79,7 +85,12 @@ def main():
     state.load_zone(JOSHUA)
     state.load_zone(CRYSTAL_CAVERNS)
     state.load_zone(EVA)
-
+    state.load_zone(LINDI)
+    state.load_zone(DREW)
+    state.load_zone(ARCHER)
+    #state.load_zone(ISAAC)
+    state.load_zone(REESE)
+    state.load_zone(JORDAN)
 
     # ── Run ───────────────────────────────────────────────────────────────────
     cprint(f"&w{len(state.rooms)} rooms loaded across all zones.&N")
