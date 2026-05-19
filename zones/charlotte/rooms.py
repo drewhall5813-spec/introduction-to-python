@@ -15,21 +15,16 @@ from . import objects as O
 from . import mobs as M
 
 ROOMS: dict[int, Room] = {
-    1: Room(
+3001: Room(
         {
             "number": 1,
-            "name": "Garden of Eden",
-            "description": "There is a huge garden streching for miles.There is a &Gtree&N in the middle of the Garden.\n God is watching over his creation.",
+            "name": "&GGarden&N of &gEden&N",
+            "description": "&GThere&N &gis&N &Ga huge garden&N streching for miles.There is a &Gtree&N in the &gmiddle of the Garden&N.\n &YGod is watching over his creation&N.",
             "indoors": False,
             "terrain": "rolling grass hills",
             "exits": [
-                {"direction": "north", "roomId": 4},
-                {"direction": "south", "roomId": 5},
-                {"direction": "east", "roomId": 2},
-                {"direction": "west", "roomId": 3},
-                {"direction": "up", "roomId": 6},
-                {"direction": "down", "roomId": 7},
-            ],
+                {"direction": "north", "roomId": 3002},
+                {"direction": "north", "roomId": 2999},
             "objects": [
                 O.spawn("Banana"),
                 O.spawn("green leaf"),
@@ -42,7 +37,7 @@ ROOMS: dict[int, Room] = {
 
         }
     ),
-2: Room(
+3002: Room(
         {
             "number": 2,
             "name": "Jericho",
@@ -50,12 +45,8 @@ ROOMS: dict[int, Room] = {
             "indoors": False,
             "terrain": "grass plane",
             "exits": [
-                {"direction": "north", "roomId": 8},
-                {"direction": "south", "roomId": 9},
-                {"direction": "east", "roomId": 10},
-                {"direction": "west", "roomId": 11},
-                {"direction": "up", "roomId": 12},
-                {"direction": "down", "roomId": 13},
+                {"direction": "north", "roomId": 3003},
+                {"direction": "north", "roomId": 3002},
             ],
             "objects": [
                 O.spawn("The Horn"),
@@ -68,7 +59,7 @@ ROOMS: dict[int, Room] = {
             ],  # two independent students
         }
     ),
-    3: Room(
+3003: Room(
         {
             "number": 3,
             "name": "Upper Room",
@@ -76,12 +67,8 @@ ROOMS: dict[int, Room] = {
             "indoors": True,
             "terrain": "Clay floor",
             "exits": [
-                {"direction": "north", "roomId": 14},
-                {"direction": "south", "roomId": 15},
-                {"direction": "east", "roomId": 16},
-                {"direction": "west", "roomId": 17},
-                {"direction": "up", "roomId": 18},
-                {"direction": "down", "roomId": 19},
+                {"direction": "north", "roomId": 3004},
+                {"direction": "north", "roomId": 3003},
             ],
             "objects": [
                 O.spawn("The Holy Grail"),
@@ -98,8 +85,10 @@ ROOMS: dict[int, Room] = {
                 M.spawn("Andrew"),
                 M.spawn("James"),
                 M.spawn("Philip"),
-                M.spawn("Bartholomew")
-            ],  # two independent students
+                M.spawn("Bartholomew"),
+                M.spawn(""),
+                M.spawn(""),
+            ],
         }
     ),
 }
