@@ -30,7 +30,7 @@ TEMPLATES: dict[str, dict] = {
     },
     2: people{
     "fellow_student": {
-        "name": "aqquainted peer",
+        "name": "fellow student",
         "key_words": ("fellow", "student"),
         "room_description": "&wa friend of yours sits nearby.&N",
         "description": (
