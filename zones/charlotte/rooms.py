@@ -18,23 +18,48 @@ ROOMS: dict[int, Room] = {
     1: Room(
         {
             "number": 1,
-            "name": "The Void",
-            "description": "There is nothing here but the sound of rushing of wind.\nWe are waiting for the Spirit of God to move over it.",
+            "name": "Garden of Eden",
+            "description": "There is a huge garden streching for miles.There is a &Gtree&N in the middle of the Garden.\n God is watching over his creation.",
             "indoors": False,
-            "terrain": "no ground",
+            "terrain": "rolling grass hills",
             "exits": [
-                {"direction": "north", "roomId": 1},
-                {"direction": "south", "roomId": 1},
+                {"direction": "north", "roomId": 4},
+                {"direction": "south", "roomId": 5},
                 {"direction": "east", "roomId": 2},
                 {"direction": "west", "roomId": 3},
-                {"direction": "up", "roomId": 1},
-                {"direction": "down", "roomId": 1},
+                {"direction": "up", "roomId": 6},
+                {"direction": "down", "roomId": 7},
             ],
             "objects": [
-                O.spawn("silken_sack"),
-                O.spawn("windsong"),
+                O.spawn("Banana"),
+                O.spawn("green leaf"),
+                O.spawn("The Fruit"),
             ],
-            "mobs": [M.spawn("escbaalion")],  # two independent students
+            "mobs": [
+                M.spawn("Adam"),
+                M.spawn("Eve"),
+                M.spawn("Slippery Serpant")],  # two independent students
+        }
+    ),
+2: Room(
+        {
+            "number": 2,
+            "name": "Jericho",
+            "description": "This is a city with a huge wall going around it to protect it.",
+            "indoors": False,
+            "terrain": "grass plane",
+            "exits": [
+                {"direction": "north", "roomId": 4},
+                {"direction": "south", "roomId": 5},
+                {"direction": "east", "roomId": 2},
+                {"direction": "west", "roomId": 3},
+                {"direction": "up", "roomId": 6},
+                {"direction": "down", "roomId": 7},
+            ],
+            "objects": [
+                O.spawn("The Horn"),
+            ],
+            "mobs": [],  # two independent students
         }
     ),
 }
