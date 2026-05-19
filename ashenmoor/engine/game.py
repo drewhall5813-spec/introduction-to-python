@@ -2,6 +2,12 @@
 ashenmoor.engine.game
 ─────────────────────
 Game state container and core engine functions.
+
+Command resolution order
+────────────────────────
+1. Player powers  — keywords defined in the player's character.powers list
+2. System commands — look, go, who, stats, examine, quit, ...
+3. "Pardon?"       — nothing matched
 """
 
 from __future__ import annotations
@@ -13,9 +19,6 @@ if TYPE_CHECKING:
 
 from .targeting import find_target, find_all_targets, target_name
 
-
-# ── Movement directions ───────────────────────────────────────────────────────
-
 DIRECTIONS = frozenset({
     "north", "south", "east", "west", "up", "down",
     "n", "s", "e", "w", "u", "d",
@@ -26,21 +29,11 @@ _DIR_EXPAND = {
     "u": "up",    "d": "down",
 }
 
-
 def _expand_direction(d: str) -> str:
     return _DIR_EXPAND.get(d.lower(), d.lower())
 
 
-# ── go() ─────────────────────────────────────────────────────────────────────
-
-def go(character: str,
-       locations: dict[str, int],
-       rooms:     dict[int, "Room"],
-       direction: str) -> object:
-    """
-    Move *character* in *direction*. Updates locations in place.
-    Returns the destination Room on success, or an error string.
-    """
+def go(character, locations, rooms, direction):
     direction = _expand_direction(direction)
     room      = rooms[locations[character]]
     dest_id   = room.exit_room_id(direction)
@@ -50,20 +43,15 @@ def go(character: str,
     return "&NAlas, you cannot go that way. . . ."
 
 
-# ── GameState ─────────────────────────────────────────────────────────────────
-
 class GameState:
-    """
-    Owns all runtime world state and exposes handle() for crepl().
-    """
 
     def __init__(self):
-        self.rooms:            dict[int, "Room"]      = {}
-        self.characters:       dict[str, "Character"] = {}
-        self.locations:        dict[str, int]         = {}
-        self.player:           str                    = ""
-        self.object_templates: dict[str, dict]        = {}
-        self.mob_templates:    dict[str, dict]        = {}
+        self.rooms            = {}
+        self.characters       = {}
+        self.locations        = {}
+        self.player           = ""
+        self.object_templates = {}
+        self.mob_templates    = {}
 
     def load_world(self, rooms, characters, locations, player=""):
         self.rooms      = rooms
@@ -71,8 +59,7 @@ class GameState:
         self.locations  = locations
         self.player     = player or (next(iter(characters)) if characters else "")
 
-    def load_zone(self, zone) -> None:
-        """Merge a Zone's rooms and templates into the live world."""
+    def load_zone(self, zone):
         collisions = set(zone.rooms) & set(self.rooms)
         if collisions:
             import warnings
@@ -84,21 +71,12 @@ class GameState:
         self.object_templates.update(zone.object_templates)
         self.mob_templates.update(zone.mob_templates)
 
-    # ── Convenience ───────────────────────────────────────────────────────────
-
     @property
     def current_room(self):
         room_id = self.locations.get(self.player)
         return self.rooms.get(room_id) if room_id is not None else None
 
-    def _target(self, target_str: str):
-        """
-        Resolve a target string in the player's current room.
-
-        Convenience wrapper around find_target() that supplies the current
-        room, locations, and characters automatically.  Any command handler
-        can call self._target("2.marker") and get back the instance or None.
-        """
+    def _target(self, target_str):
         room = self.current_room
         if room is None:
             return None
@@ -106,146 +84,164 @@ class GameState:
 
     # ── Command handler ───────────────────────────────────────────────────────
 
-    def handle(self, raw: str) -> object:
-        tokens      = raw.strip().lower().split()
+    def handle(self, raw: str):
+        tokens = raw.strip().lower().split()
         if not tokens:
             return None
         verb, *args = tokens
 
-        # quit
+        # 1. Player powers first
+        power_result = self._try_power(verb, args)
+        if power_result is not None:
+            return power_result
+
+        # 2. System commands
         if verb in ("quit", "exit", "leave", "q", "camp"):
             return "quit"
 
-        # movement
         if verb in DIRECTIONS or verb == "go":
             direction = args[0] if verb == "go" and args else verb
             return go(self.player, self.locations, self.rooms, direction)
 
-        # look / look <target>
         if verb in ("look", "l"):
             return self._cmd_look(args)
 
-        # examine / ex / x
         if verb in ("examine", "ex", "x"):
             return self._cmd_examine(args)
 
-        # who
         if verb == "who":
             return self._who()
 
-        # score / stats
         if verb in ("score", "stats", "stat"):
             char = self.characters.get(self.player)
             return char.character_sheet() if char else "&RNo character found.&N"
 
+        if verb in ("powers", "spells", "skills", "abilities"):
+            return self._cmd_powers()
+
+        # 3. Unknown
         return "&NPardon?"
+
+    # ── Powers ────────────────────────────────────────────────────────────────
+
+    def _try_power(self, verb: str, args: list):
+        """
+        Return output string if verb matches a player power keyword, else None.
+        Returning None tells handle() to keep checking system commands.
+        """
+        char = self.characters.get(self.player)
+        if not char or not char.powers:
+            return None
+
+        for power in char.powers:
+            keywords = power.get("keywords", ())
+            if isinstance(keywords, str):
+                keywords = (keywords,)
+            if verb in (k.lower() for k in keywords):
+                return self._execute_power(power)
+
+        return None
+
+    def _execute_power(self, power: dict) -> str:
+        """
+        Build the output for a triggered power.
+
+        user_msg  — shown to the player
+        room_msg  — shown to everyone else in the room
+                    {name} is replaced with the player's name.
+
+        For now both appear in the same output.  When multiplayer is added,
+        room_msg will be broadcast separately to other connections.
+        """
+        char = self.characters.get(self.player)
+        name = char.name if char else "Someone"
+
+        user_msg = power.get("user_msg", "")
+        room_msg = power.get("room_msg", "").format(name=name)
+
+        parts = []
+        if user_msg:
+            parts.append(user_msg)
+        if room_msg:
+            parts.append(f"&w(others see)&N {room_msg}")
+        return "\n".join(parts)
+
+    def _cmd_powers(self) -> str:
+        """List the player's known powers."""
+        char = self.characters.get(self.player)
+        if not char:
+            return "&RNo character found.&N"
+        if not char.powers:
+            return "&wYou have no powers.&N"
+        lines = [f"&+W{'Power':<20} {'Keywords'}&N",
+                 "&w" + "─" * 46 + "&N"]
+        for p in char.powers:
+            kws  = ", ".join(p.get("keywords", ()))
+            name = p.get("name", "?")
+            lines.append(f"{name:<20} &c{kws}&N")
+        return "\n".join(lines)
 
     # ── look ─────────────────────────────────────────────────────────────────
 
-    # All words that count as a direction for 'look <direction>'
     _ALL_DIRS = frozenset({
         "north","south","east","west","up","down",
         "northeast","northwest","southeast","southwest",
         "n","s","e","w","u","d","ne","nw","se","sw",
     })
 
-    def _cmd_look(self, args: list) -> str:
+    def _cmd_look(self, args):
         room = self.current_room
         if room is None:
             return "&RYou are nowhere.&N"
-
-        # bare 'look' — describe the room
         if not args:
             return room.render(self.locations, self.characters)
-
         token = args[0].lower()
-
-        # 'look <direction>' — peek into the next room
         if token in self._ALL_DIRS:
             direction = _expand_direction(token)
             dest, blocked, msg = room.peek(direction, self.rooms)
             if msg:
                 return msg
             return dest.render(self.locations, self.characters)
-
-        # 'look <target>' — describe a specific thing in this room
         target_str = " ".join(args)
         instance   = find_target(target_str, room, self.locations, self.characters)
         if instance is None:
             return f"&wYou don't see any '&W{target_str}&w' here.&N"
         return self._describe(instance)
 
-    # ── examine ───────────────────────────────────────────────────────────────
-
-    def _cmd_examine(self, args: list) -> str:
-        """
-        examine <target>   — show the full description of a target.
-
-        Uses the same targeting system as look:
-            examine marker       first marker in the room
-            examine 2.marker     second marker
-            examine guardian     the void guardian mob
-            examine moted        a character named moted
-        """
+    def _cmd_examine(self, args):
         if not args:
             return "&wExamine what?  e.g.  &Wexamine 2.marker&N"
-
         room = self.current_room
         if room is None:
             return "&RYou are nowhere.&N"
-
         target_str = " ".join(args)
         instance   = find_target(target_str, room, self.locations, self.characters)
-
         if instance is None:
             return f"&wYou don't see any '&W{target_str}&w' here.&N"
-
         return self._describe(instance)
 
-    # ── describe — shared by look and examine ─────────────────────────────────
-
-    def _describe(self, instance) -> str:
-        """
-        Return the appropriate description string for any target type.
-
-        Mob / Character   → character_sheet() + examine() if present
-        Object            → description field
-        """
+    def _describe(self, instance):
         from ..world.mob import Mob
         from ..core.character import Character
         from ..world.objects import Object
-
         if isinstance(instance, Mob):
-            # Mobs have both a character sheet and an examine description
-            parts = []
-            if instance.description:
-                parts.append(instance.description)
-            else:
-                parts.append(f"You see nothing special about {instance.name}.")
-            return "\n".join(parts)
-
+            return instance.description or f"You see nothing special about {instance.name}."
         if isinstance(instance, Character):
             return instance.character_sheet()
-
         if isinstance(instance, Object):
             desc = getattr(instance, "description", "")
             name = target_name(instance)
             return desc if desc else f"You see nothing special about {name}."
-
         return str(instance)
 
-    # ── who ───────────────────────────────────────────────────────────────────
-
-    def _who(self) -> str:
+    def _who(self):
         if not self.characters:
             return "&wNobody is here.&N"
         lines = [f"&+W{'Name':<15} {'Race':<12} {'Class':<10} {'Level':>5}&N"]
         lines.append("&w" + "─" * 46 + "&N")
         for char in self.characters.values():
-            lines.append(
-                f"{char.name:<15} {char.race:<12} {char.cclass:<10} {char.level:>5}"
-            )
+            lines.append(f"{char.name:<15} {char.race:<12} {char.cclass:<10} {char.level:>5}")
         return "\n".join(lines)
 
-    def character_list(self) -> str:
+    def character_list(self):
         return self._who()
