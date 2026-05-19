@@ -44,9 +44,9 @@ TEMPLATES: dict[str, dict] = {
         'name': "&+ga &wg&Wl&wi&Wtt&wer&Wi&wng &N&+gelven scimitar&N",
         'key_words': ('scimitar', 'elven', 'glittering'),
         'room_description': "&+gA glittering elven scimitar is lying on the ground here.&N",
-        'description': """&+gIts blade encrusted with diamond dust, this magically light
-&+gelven blade glitters in the sunlight and seems to hum softly
-&+gwhen wielded in battle.&N""",
+        'description': ("&+gIts blade encrusted with diamond dust, this magically light",
+            "&+gelven blade glitters in the sunlight and seems to hum softly",
+            "&+gwhen wielded in battle.&N"),
         "weight":           3,
         "dice":             "2d8",
         "hitroll":          2,

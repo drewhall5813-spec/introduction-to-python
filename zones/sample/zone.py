@@ -1,1 +1,1 @@
-number = myNumber
+number = 0

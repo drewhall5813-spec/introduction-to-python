@@ -166,9 +166,7 @@ class GameState:
             dest, blocked, msg = room.peek(direction, self.rooms)
             if msg:
                 return msg
-            # Show the destination room name + description only (not its
-            # full contents — players have to enter to see those)
-            return f"&+W{dest.name}&N\n  {dest.description}"
+            return dest.render(self.locations, self.characters)
 
         # 'look <target>' — describe a specific thing in this room
         target_str = " ".join(args)
