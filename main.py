@@ -19,23 +19,23 @@ from ashenmoor.core import Character, RACES
 from ashenmoor.engine import GameState
 
 # ── Import zones ──────────────────────────────────────────────────────────────
-# Each zone is a Python package under zones/.
-# Add more here as you build them:
-#   from zones.riverview import ZONE as RIVERVIEW
-#   from zones.dungeon   import ZONE as DUNGEON
-
-#from zones.the_void import ZONE as THE_VOID
-from zones.archer import ZONE as ARCHER
-from zones.wilson import ZONE as WILSON
-from zones.damien import ZONE as DAMIEN
-from zones.timothy import ZONE as TIMOTHY
-from zones.asher import ZONE as ASHER
-from zones.gabe import ZONE as GABE
 from zones.the_void import ZONE as THE_VOID
+from zones.archer import ZONE as ARCHER
+from zones.asher import ZONE as ASHER
 from zones.charlotte import ZONE as CHARLOTTE
-from zones.wyatt import ZONE as CRYSTAL_CAVERNS
-from zones.joshua import ZONE as JOSHUA
+from zones.damien import ZONE as DAMIEN
+from zones.drew import ZONE as DREW
 from zones.eva import ZONE as EVA
+from zones.gabe import ZONE as GABE
+from zones.isaac import ZONE as ISAAC
+from zones.jordan import ZONE as JORDAN
+from zones.joshua import ZONE as JOSHUA
+from zones.lindi import ZONE as LINDI
+from zones.new_zone import ZONE as NEW_ZONE
+from zones.reese import ZONE as REESE
+from zones.timothy import ZONE as TIMOTHY
+from zones.wilson import ZONE as WILSON
+from zones.wyatt import ZONE as WYATT
 
 def main():
     # ── Characters ────────────────────────────────────────────────────────────
@@ -69,19 +69,23 @@ def main():
     state.load_world({}, characters, locations, player="Moted")
 
     # Load zones — rooms, object templates, and mob templates all merge in
-    #state.load_zone(THE_VOID)
-    state.load_zone(ARCHER)
-    # state.load_zone(RIVERVIEW)  # add more zones here
-    state.load_zone(WILSON)
-    state.load_zone(DAMIEN)
-    state.load_zone(TIMOTHY)
     state.load_zone(THE_VOID)
-    state.load_zone(CHARLOTTE)
+    state.load_zone(ARCHER)
     state.load_zone(ASHER)
-    state.load_zone(GABE)
-    state.load_zone(JOSHUA)
-    state.load_zone(CRYSTAL_CAVERNS)
+    state.load_zone(CHARLOTTE)
+    state.load_zone(DAMIEN)
+    state.load_zone(DREW)
     state.load_zone(EVA)
+    state.load_zone(GABE)
+    state.load_zone(ISAAC)
+    state.load_zone(JORDAN)
+    state.load_zone(JOSHUA)
+    state.load_zone(LINDI)
+    state.load_zone(NEW_ZONE)
+    state.load_zone(REESE)
+    state.load_zone(TIMOTHY)
+    state.load_zone(WILSON)
+    state.load_zone(WYATT)
 
 
     # ── Run ───────────────────────────────────────────────────────────────────
