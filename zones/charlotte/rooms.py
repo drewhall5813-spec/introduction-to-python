@@ -86,7 +86,7 @@ ROOMS: dict[int, Room] = {
             "objects": [
                 O.spawn("The Holy Grail"),
                 O.spawn("Bread"),
-                Ospawn("Wine")
+                O.spawn("Wine")
             ],
             "mobs": [  
                 M.spawn("Jesus") ,
