@@ -15,19 +15,22 @@ from . import objects as O
 from . import mobs as M
 
 ROOMS: dict[int, Room] = {
-3001: Room(
+
+1: Room(
         {
-            "number": 3001,
+            "number": 1,
             "name": "&GGarden&N of &gEden&N",
-            "description": "&GThere&N &gis&N &Ga huge garden&N streching for miles.There is a &Gtree&N in the &gmiddle of the Garden&N.\n &YGod is watching over his creation&N.",
+            "description": "&GThere&N &gis&N &Ga huge garden&N streching for miles.There is a &Gtree&N in the &gmiddle of the Garden&N.\n &YG&N&yo&N&Yd&N is watching over his creation.",
             "indoors": False,
             "terrain": "rolling grass hills",
             "exits": [
-                {"direction": "north", "roomId": 3002},
-                {"direction": "north", "roomId": 2999},
+                {"direction": "north", "roomId": 2},
+                {"direction": "down", "roomId": 99002, "external": True}
+                
+            ],
             "objects": [
                 O.spawn("Banana"),
-                O.spawn("green leaf"),
+                O.spawn("green Leaf"),
                 O.spawn("The Fruit"),
             ],
             "mobs": [
@@ -37,16 +40,16 @@ ROOMS: dict[int, Room] = {
 
         }
     ),
-3002: Room(
+2: Room(
         {
-            "number": 3002,
+            "number": 2,
             "name": "&CJ&N&ce&N&Cr&N&ci&N&Cc&N&ch&N&Co&N",
-            "description": "&wThis&N &Wis&N &wa&N city with a huge wall going around it to protect it.",
+            "description": "&wThis is a city with a huge wall going around it to protect it.&N",
             "indoors": False,
             "terrain": "grass plane",
             "exits": [
-                {"direction": "north", "roomId": 3003},
-                {"direction": "north", "roomId": 3002},
+                {"direction": "south", "roomId": 1},
+                {"direction": "north", "roomId": 3},
             ],
             "objects": [
                 O.spawn("The Horn"),
@@ -59,21 +62,21 @@ ROOMS: dict[int, Room] = {
             ],  # two independent students
         }
     ),
-3003: Room(
+3: Room(
         {
-            "number": 3003,
-            "name": "Upper Room",
-            "description": "This is the very room that Jesus and his disciples ate in during the last supper.",
+            "number": 3,
+            "name": "&wU&N&Wp&N&wp&N&We&N&wr&N &WR&N&Wo&N&wo&N&Wm&N",
+            "description": "&WThis is the very room that Jesus and his disciples ate in during the last supper.&N",
             "indoors": True,
             "terrain": "Clay floor",
             "exits": [
-                {"direction": "north", "roomId": 3004},
-                {"direction": "north", "roomId": 3003},
+                {"direction": "south", "roomId": 2},
+                {"direction": "north", "roomId": 4},
             ],
             "objects": [
-                O.spawn("The &YHoly&N &yGrail&N"),
-                O.spawn("&BBread&N"),
-                O.spawn("&RW&N&ri&N&Rn&N&re&N")
+                O.spawn("The Holy Grail"),
+                O.spawn("Bread"),
+                O.spawn("Wine")
             ],
             "mobs": [  
                 M.spawn("Jesus") ,

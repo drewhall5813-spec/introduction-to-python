@@ -18,7 +18,7 @@ TEMPLATES: dict[str, dict] = {
         "spawn_as": Object,
         "name": "a &ggreen&N &Gleaf&N",
         "key_words": ("green", "leaf"),
-        "room_description": "a {a green leaf has been carelessly discarded here.",
+        "room_description": "a green leaf has been carelessly discarded here.",
         "description": "A forest green leaf is lying on the ground.",
     },
 
@@ -26,13 +26,13 @@ TEMPLATES: dict[str, dict] = {
         "spawn_as": Object,
         "name": " &Ybanana&N",
         "key_words": ("banana"),
-        "room_description": "A &Ybannannna&N is hanging of a bush.",
+        "room_description": "A &Yb&N&ya&N&Yn&N&yn&N&Ya&N&yn&N&Yn&N&yn&N&Ya&N is hanging of a &Gb&N&gu&N&Gs&N&gh&N.",
         "description": "This banana seems to be very tasty.",
     },
 
     "The Fruit": {
         "spawn_as": Object,
-        "name": "The Fruit",
+        "name": "&RT&N&Yh&N&Ge&N &CF&N&Rr&N&Yu&N&Gi&N&Ct&N",
         "key_words": ("Fruit"),
         "room_description": "The Fruit is hanging from a branch on a tree.",
         "description": "This is the Fruit that adam and eve ate. THis fruit caused the first sin.",
@@ -64,8 +64,8 @@ TEMPLATES: dict[str, dict] = {
 
      "Bread": {
         "spawn_as": Object,
-        "name": " Unleven Bread",
-        "key_words": ("Unleven","Bread"),
+        "name": " Unleaven Bread",
+        "key_words": ("Unleaven","Bread"),
         "room_description": "The bread is stacked neatly on the table.",
         "description": "The bread was broken and given to Judas. Judas than ran away to the temple to help the pharasees capture Jesus Christ./n The bread represents the body of Jesus. ",
     },
