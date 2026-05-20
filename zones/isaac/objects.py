@@ -33,7 +33,7 @@ TEMPLATES: dict[str, dict] = {
     "street_lamp": {  # finish
         "spawn_as": Object,
         "name": "",
-        "key_words": ("", "", ""),
+        "key_words": ("street", "lamp", "lamppost"),
         "room_description": "",
         "description": "",
     },
