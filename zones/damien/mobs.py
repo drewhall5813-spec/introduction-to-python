@@ -39,7 +39,7 @@ TEMPLATES: dict[str, dict] = {
         "dark_mage": {
             "name": "a dark mage",
             "key_words": ("dark", "mage"),
-            "room_description": "A &bdark mage&N cloaked in &xblack&M stands here at attention. It looks angry, so you look away as to not anger it further.",
+            "room_description": "A &bdark mage&N cloaked in &xblack&M&N stands here at attention. It looks angry, so you look away as to not anger it further.",
             "description": ("This powerful looking being is a henchman of the &rGreat Darkness&N."),
             "race": "Fallen Elf",
             "class": "Mage",

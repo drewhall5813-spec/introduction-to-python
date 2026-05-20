@@ -36,7 +36,7 @@ ROOMS: dict[int, Room] = {
                 M.spawn("void_dragon"),
                 M.spawn("shadow_gremlin"),
                 M.spawn("dark_mage"),
-            ],  # two independent students
+            ],
         }
     ),
 }
