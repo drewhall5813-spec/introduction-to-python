@@ -21,12 +21,13 @@ ROOMS: dict[int, Room] = {
             "name": "&xW&yo&xo&yd&xl&xa&yn&xd&N Manor",
             "description": "A heavily fortified mansion, your currently surrounded by Illriggers",
             "indoors": True,
-            "terrain": "floors, rooms, and walls",
+            "terrain": "floors, rooms, stairs, hallways, ceiling, and walls",
             "exits": [
-                {"direction": "north", "roomId": 1},
-                {"direction": "south", "roomId": 1},
+                {"direction": "north", "roomId": 2},
+                {"direction": "south", "roomId": 3},
                 {"direction": "east", "roomId": 1},
                 {"direction": "west", "roomId": 1},
+                {"direction": "down", "roomId": 99002, "external": "True"},
             ],
             "objects": [
                 O.spawn("Potion of Turtle Master"),
@@ -35,7 +36,67 @@ ROOMS: dict[int, Room] = {
             "mobs": [ 
                 M.spawn("&MIllrigger Mage&N"),
                 M.spawn("&RIllrigger Rogue&N"),
-            ]
+            ],
         }
     ),
+
+
+    
+    2: Room(
+            {
+                "number": 2,
+                "name": "&xW&yo&xo&yd&xl&xa&yn&xd&N Manor Chest Room",
+                "description": "A gaint room full of chests filled with treasures beyond your wildest dreams /nIt is guarded by an &RIllrigger&N",
+                "indoors": True,
+                "terrain": "floors, rooms, stairs, hallways, ceiling, and walls",
+                "exits": [
+                    {"direction": "north", "roomId": 3},
+                    {"direction": "south", "roomId": 1},
+                    {"direction": "east", "roomId": 4},
+                    {"direction": "west", "roomId": 5},
+                ],
+                "objects": [
+                    O.spawn("Potion of Turtle Master"),
+                    O.spawn("windsong"),
+                ],
+                "mobs": [ 
+                    M.spawn("&RIllrigger Rogue&N"),
+                ],
+            }
+        ),
+
+
+    3: Room(
+            {
+                "number": 3,
+                "name": "&xW&yo&xo&yd&xl&xa&yn&xd&N Manor Prison Room",
+                "description": "a room full of empty cells except one, the one with the wandering student inside",
+                "indoors": True,
+                "terrain": "floors, cells, ceiling, and walls",
+                "exits": [
+                    {"direction": "north", "roomId": 1}
+                ],
+                "mobs": [ 
+                    M.spawn("wandering_student"),
+                ],
+            }
+        ),
+        4: Room(
+            {
+                "number": 4,
+                "name": "&xW&yo&xo&yd&xl&xa&yn&xd&N Manor Library",
+                "description": "A gaint room filled with books and shelves",
+                "indoors": True,
+                "terrain": "floors, rooms, stairs, hallways, ceiling, and walls",
+                "exits": [
+                    {"direction": "south", "roomId": 1},
+                ],
+                "objects": [
+                    O.spawn("windsong"),
+                ],
+                "mobs": [ 
+                    M.spawn("&RIllrigger Rogue&N"),
+                ],
+            }
+        ),
 }
