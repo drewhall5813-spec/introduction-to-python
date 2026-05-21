@@ -97,14 +97,17 @@ ROOMS: dict[int, Room] = {
                 {"direction": "east", "roomId": 1},
                 {"direction": "south", "roomId": 12},
             ],
-            "objects": [],  # objects include gears, pipes, springs, metal shards,
+            "objects": [
+                O.spawn("traffic_cone"),
+                # O.spawn("traffic_cone"),
+            ],  # objects include gears, pipes, springs, metal shards,
             "mobs": [],
         }
     ),
     12: Room(
         {
             "number": 12,
-            "name": "unnamed",
+            "name": "Unnamed",
             "description": ("A &ywooden trap door&N on the floor seems inviting."),
             "indoors": False,
             "terrain": "no ground",
