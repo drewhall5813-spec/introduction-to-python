@@ -27,6 +27,7 @@ ROOMS: dict[int, Room] = {
                 {"direction": "south", "roomId": 1},
                 {"direction": "east", "roomId": 1},
                 {"direction": "west", "roomId": 1},
+                {"direction": "down", "roomId": 99002, "external": True}
             ],
             "objects": [
                 O.spawn("sack_of_darkness"),
