@@ -14,12 +14,30 @@ from ashenmoor.world import Object, Item, Weapon
 from ashenmoor.world.zone import make_spawner
 
 TEMPLATES: dict[str, dict] = {
-    "OBJ template": {
+    "object_template": {
         "spawn_as":         Object,
-        "name":             "a thing",
-        "key_words":        ("stuff"),
-        "room_description": "",
-        "description":      "",
+        "name":             "object",
+        "key_words":        ("1", "2",),
+        "room_description": "object is here.",
+        "description":      "can't interact with.",
+    },
+    "Item_template": {
+        "spawn_as":         Item,
+        "name":             "item",
+        "key_words":        ("1", "2",),
+        "room_description": "item sets here.",
+        "description":      "can interact with.",
+    },
+    "Weapon_template" : {
+        "spawn_as":         Weapon,
+        'name': "thing",
+        'key_words': ("1", "2"),
+        'room_description': "a weapon sets here.",
+        'description': "bonk",
+        "weight":           3,
+        "dice":             "2d8",
+        "hitroll":          2,
+        "damroll":          4,
     },
 
     "silken_sack": {
@@ -47,7 +65,7 @@ TEMPLATES: dict[str, dict] = {
         "spawn_as":         Object,
         "name":             "Brumplin Seed",
         "key_words":        ("Brumplin", "Seed"),
-        "room_description": "A &gball of brambles&n sticking out of the mud",
+        "room_description": "A &gball of brambles&n sticks out of the mud",
         "description":      "A light ball of brambles",
     },
      "Acursed Elk Steak": {
