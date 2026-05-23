@@ -40,11 +40,11 @@ TEMPLATES: dict[str, dict] = {
         "aggro": False,
         "wander": False,
     },
-    "Eve": {
-        "name": "Eve",
-        "key_words": ("Eve"),
-        "room_description": "Eve is standing here talking to a serpent.",
-        "description": ( "Eve is the first woman. \n She has been givin the job of taking care of the earth. She is wearing nothing because she doesn't know what is right from wrong."),
+    "Mr. Carlson": {
+        "name": "Mr. Carlson",
+        "key_words": ("Mr.Carlson"),
+        "room_description": "Mr.Carlson wanders from room to room.",
+        "description": ( ". \n She has been givin the job of taking care of the earth. She is wearing nothing because she doesn't know what is right from wrong."),
         "race": "Human",
         "class": "Female",
         "level": 7,
