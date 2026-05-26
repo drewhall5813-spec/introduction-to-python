@@ -52,8 +52,8 @@ TEMPLATES: dict[str, dict] = {
 &WIt looks like it can shoot &Ybullets &Wof pure {m&Mplasma&N
 &WIt is &Mmagenta&N, not &Rpink&N""",
         "weight": 7,
-        "dice": "2d6",
-        "hitroll": 4,
+        "dice": "2d10",
+        "hitroll": 16,
         "damroll": 8,
     },
     "Uranium Rod": {
