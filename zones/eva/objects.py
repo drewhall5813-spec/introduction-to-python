@@ -56,7 +56,7 @@ TEMPLATES: dict[str, dict] = {
         "name":             "Giant Oak Tree",
         "key_words":        ("oak", "tree",),
         "room_description": "An extremely large &goak tree&N sits deeply rooted in the center of the courtyard.",
-        "description":      "This &ggiant oak&N towers over all else near it, it's &gb&yr&ga&yn&gc&yh&ye&gs&N covering the courtyard in a pleasant dappled shade.\nIts roots have started to disrupt some of the &wcobblestone bricks&N in the path surrounding it.",
+        "description":      "This &ggiant oak&N towers over all else near it, it's &gb&yr&ga&yn&gc&yh&ye&gs&N covering the courtyard in a pleasant dappled shade.\nIts &yroots&N have started to disrupt some of the &wcobblestone bricks&N in the path surrounding it.",
     },
     "Tables": {
         "spawn_as":         Object,
