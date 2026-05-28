@@ -43,7 +43,20 @@ TEMPLATES: dict[str, dict] = {
         'room_description': "An &Xominous&N, sad looking tree towers above you.",
         'description': "A &xhanging tree&N, where they strung up a man they say &rmurdered&N three.",
     },
-
+    "pile_of_goo" : {
+        "spawn_as":         Item,
+        'name': "a pile of goo",
+        'key_words': ('pile', 'goo'),
+        'room_description': "A pile of &mgoo&N lies on the ground.",
+        'description': "The goo is slightly, and disgustingly, warm. It has an odd, mildewy scent.",
+    },
+    "falcon_feather" : {
+        "spawn_as":         Item,
+        'name': "a falcon feather",
+        'key_words': ('feather', 'falcon'),
+        'room_description': "A &xdark&N colored feather lies on the ground.",
+        'description': "The feather is dark, from a falcon.",
+    },
 }
 
 # Module-level spawn — rooms.py calls  O.spawn("red_marker")

@@ -47,7 +47,31 @@ TEMPLATES: dict[str, dict] = {
             "stats": [90, 90, 90, 90, 90, 90],
             "aggro": False,
             "wander": False,
-        }
+    },
+        "dark_glob": {
+            "name": "a dark glob",
+            "key_words": ("dark", "glob"),
+            "room_description": "A &bdark glob&N hops around, making a gross sound.",
+            "description": ("The blob is entirely a &gstrange&N, &mpurplish goo."),
+            "race": "Slime",
+            "class": "Jump",
+            "level": 5,
+            "stats": [80, 80, 80, 80, 80, 80],
+            "aggro": False,
+            "wander": False,
+    },
+        "falcon_spy": {
+            "name": "a falcon spy",
+            "key_words": ("falcon", "spy"),
+            "room_description": "A &Xdarkly colored&N falcon sits alert.",
+            "description": ("This bird was created to collect information for the &rGreat Darkness&N."),
+            "race": "Bird",
+            "class": "Watcher",
+            "level": 20,
+            "stats": [90, 90, 90, 90, 90, 90],
+            "aggro": False,
+            "wander": False,
+    },
 }
 
 

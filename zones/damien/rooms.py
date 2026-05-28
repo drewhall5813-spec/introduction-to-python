@@ -32,12 +32,16 @@ ROOMS: dict[int, Room] = {
             "objects": [
                 O.spawn("sack_of_darkness"),
                 O.spawn("sword_that_seals_the_darkness"),
-                O.spawn('hanging_tree')
+                O.spawn('hanging_tree'),
+                O.spawn('pile_of_goo'),
+                O.spawn('falcon_feather'),      
             ],
             "mobs": [
                 M.spawn("void_dragon"),
                 M.spawn("shadow_gremlin"),
                 M.spawn("dark_mage"),
+                M.spawn("dark_glob"),
+                M.spawn("falcon_spy"),
             ],
         }
     ),
@@ -84,16 +88,19 @@ ROOMS: dict[int, Room] = {
     4: Room(
         {
             "number": 4,
-            "name": "Dead Fields",
-            "description": "The field is flat and covered with dead, brownish grass",
+            "name": "Gooey Plains",
+            "description": "It appears that this area used to be covered in grass, but now an &godd&N &mpurple&N &gslime&N covers the ground",
             "indoors": False,
-            "terrain": "grass",
+            "terrain": "slime",
             "exits": [
                 {"direction": "north", "roomId": 5},
                 {"direction": "south", "roomId": 6},
                 {"direction": "east", "roomId": 1},
                 {"direction": "west", "roomId": 1},
             ],
+            "mobs": [
+                M.spawn("dark_glob"),
+            ],            
         }
     ),
     5: Room(
