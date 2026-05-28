@@ -2,8 +2,11 @@ __pycache__/
 *.py[cod]
 *.pyo
 .env
+.vscode/
+.vscode
 .venv
 venv/
+*.db
 *.egg-info/
 dist/
 build/

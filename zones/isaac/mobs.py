@@ -17,18 +17,18 @@ TEMPLATES: dict[str, dict] = {
         "key_words": ("Escbaalion", "lizard", "lizardman"),
         "room_description": "&gEscbaalion&N licks his eyeball.",
         "description": (
-            "&gEscbaalion&N (The 'c' is silent)\n"
-            "A humanoid lizard. He is &gdark-green&N, and has a short\n"
-            "&Ccyan sail&N that runs from the top of his head to the end of his tail.\n"
-            "He wears an almost &Xblack cloak&N, but wears &Rno&N pants.\n"
-            "A &ybrown leather satchel&N is slung over his shoulder.\n"
-            "Only &ghe&N knows what is inside his &ybag&N. . . ."
+            "(The 'c' is silent)\n"
+            "A humanoid lizard. He is &gdark-green&N, and has a short\n",
+            "&Ccyan sail&N that runs from the top of his head to the end of his tail.\n",
+            "He wears an almost &Xblack cloak&N, but wears &Rno&N pants.\n",
+            "A &ybrown leather satchel&N is slung over his shoulder.\n",
+            "Only &ghe&N knows what is inside his &ybag&N. . . .",
         ),
         "race": "Lizaroid",
         "class": "Sorcerer",
         "level": 10,
         "stats": [80, 50, 200, 90, 90, 70],
-        "aggro": True,
+        "aggro": False,
         "wander": False,
     },
     "unicorn_blob": {
@@ -36,16 +36,16 @@ TEMPLATES: dict[str, dict] = {
         "key_words": ("unicorn", "blob"),
         "room_description": "&MUnicorn Blob&N wanders without a care in the world.",
         "description": (
-            "It is a &mpurple blob of&N &Mjelly&N.\n"
-            "A &Ygolden unicorn horn&N protrudes from its forehead.\n"
-            "Its eyes are cute and sparkly and &Xsouless&N.\n"
-            "\n"
-            "\n"
-            "\n"
-            "I wonder what it tastes like...?"
+            "It is a &Mpurple blob of&N &mjelly&N.\n",
+            "A &Ygolden unicorn horn&N protrudes from its forehead.\n",
+            "Its eyes are cute and sparkly and &Xsouless&N.\n",
+            "\n",
+            "\n",
+            "\n",
+            "I wonder what it tastes like...?",
         ),
         "race": "Slime",
-        "class": None,
+        "class": "",
         "level": 7,
         "stats": [70, 50, 160, 20, 20, 100],
         "aggro": False,
