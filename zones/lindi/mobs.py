@@ -12,19 +12,19 @@ from ashenmoor.world import Mob
 from ashenmoor.world.zone import make_spawner
 
 TEMPLATES: dict[str, dict] = {
-    "wandering_student": {
-        "name": "a wandering student",
-        "key_words": ("student", "wandering"),
-        "room_description": "&wA wandering student meanders about aimlessly.&N",
+    "beanbag monster": {
+        "name": "beanbag monster",
+        "key_words": ("beanbag", "monster"),
+        "room_description": "&wa wretched &Pbeanbag monster&N sits in a corner with a devious look.&N",
         "description": (
-            "A student with a faraway look, clearly lost in thought.\n"
-            "Or possibly just lost."
+            "a medium monster that it fuzzy and purple, it seems to want a fight.\n"
         ),
         "race": "Human",
         "class": "Student",
-        "level": 1,
-        "stats": [60, 65, 60, 80, 70, 75],
+        "level": 19,
+        "stats": [10, 10, 10, 10, 10, 10],
         "aggro": False,
+        "killable": True,
         "wander": True
     },
     "Mr. Carlson": {
@@ -40,6 +40,7 @@ TEMPLATES: dict[str, dict] = {
         "level": 1,
         "stats": [60, 65, 60, 80, 70, 75],
         "aggro": False,
+        "killable": False,
         "wander": True
     },
     "fellow_student": {
@@ -54,6 +55,7 @@ TEMPLATES: dict[str, dict] = {
         "level": 3,
         "stats": [65, 65, 65, 80, 65, 65],
         "aggro": False,
+        "killable": False,
         "wander": False,
     }
 }

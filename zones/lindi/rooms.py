@@ -6,7 +6,7 @@ ROOMS: dict[int, Room] = {
     5: Room({
         "number": 5,
         "name": "Mrs.Allisons class",
-        "description": "",
+        "description": "you are in a room, a plethora of fancy historical dupes surround you on the walls",
         "indoors": True,
         "terrain": "ground",
         "exits": [
@@ -19,7 +19,7 @@ ROOMS: dict[int, Room] = {
     6: Room({
         "number": 6,
         "name": "Miss Allisons",
-        "description": "a room, filled with modern decor, accompanied by historical papers and a wooden map",
+        "description": "a room, filled with modern decor, accompanied by historical papers and a wooden map that adorns half of the west wall",
         "indoors": True,
         "terrain": "ground",
         "exits": [
@@ -30,10 +30,10 @@ ROOMS: dict[int, Room] = {
         ],
         "mobs": [],
     }),
-    9: Room({
-        "number": 9,
-        "name": "Mr. Millers",
-        "description": "a bland room with geometrically shaped desks and animal tanks.",
+    7: Room({
+        "number": 7,
+        "name": "Mrs. Millers",
+        "description": "a lightly decorated room with geometrically shaped desks and animal tanks.",
         "indoors": True,
         "terrain": "ground",
         "exits": [
@@ -58,9 +58,9 @@ ROOMS: dict[int, Room] = {
         ],
         "mobs": [],
     }),
-    7: Room({
-        "number": 7,
-        "name": "Mrs. Millers class",
+    9: Room({
+        "number": 9,
+        "name": "Mr. Millers class",
         "description": "a bland room with few decorations, two couches sit in the back.",
         "indoors": True,
         "terrain": "ground",
@@ -103,7 +103,7 @@ ROOMS: dict[int, Room] = {
     1: Room({
         "number": 1,
         "name": "hallway seg 1",
-        "description": "lockers line the walls on the west, accompanied by a door.\nbackpacks hangs nest to another door on the east",
+        "description": "lockers line the walls on the south, accompanied by a door.\nbackpacks hangs nest to another door on the east",
         "indoors": True,
         "terrain": "ground",
         "exits": [
@@ -120,7 +120,7 @@ ROOMS: dict[int, Room] = {
     2: Room({
         "number": 2,
         "name": "hallway seg 2",
-        "description": "lockers line the walls on the west, accompanied by a door.",
+        "description": "lockers line the walls on the south, accompanied by a door.",
         "indoors": True,
         "terrain": "ground",
         "exits": [
@@ -137,7 +137,7 @@ ROOMS: dict[int, Room] = {
     3: Room({
         "number": 3,
         "name": "hallway seg 3",
-        "description": "lockers line the walls on the west, accompanied by a door.",
+        "description": "lockers line the walls on the south, accompanied by a door.",
         "indoors": True,
         "terrain": "ground",
         "exits": [
@@ -154,11 +154,84 @@ ROOMS: dict[int, Room] = {
     4: Room({
         "number": 4,
         "name": "hallway seg 4",
-        "description": "lockers line the walls on the west, accompanied by a door.",
+        "description": "lockers line the walls on the south, accompanied by a door.",
         "indoors": True,
         "terrain": "ground",
         "exits": [
             {"direction": "north", "roomId": 8},
+        ],
+        "objects": [
+            
+        ],
+        "mobs": [],
+    }),
+    15: Room({
+        "number": 15,
+        "name": "Mr. C's office",
+        "description": "this room is filled with a subtle intensity of past punishment, many hunting related decor are hung here.",
+        "indoors": True,
+        "terrain": "ground",
+        "exits": [
+            {"direction": "north", "roomId": 16},
+        ],
+        "objects": [
+            
+        ],
+        "mobs": [],
+    }),
+    
+    12: Room({
+        "number": 12,
+        "name": "bathroom 1",
+        "description": "you are in a clean but &Gacrid&N smelling room, few items can be found here",
+        "indoors": True,
+        "terrain": "ground",
+        "exits": [
+            {"direction": "east", "roomId": 17},
+        ],
+        "objects": [
+            
+        ],
+        "mobs": [],
+    }),
+    13: Room({
+        "number": 15,
+        "name": "bathroom 2",
+        "description": "you are in a clean but &Gacrid&N smelling room, few items can be found here",
+        "indoors": True,
+        "terrain": "ground",
+        "exits": [
+            {"direction": "east", "roomId": 18},
+        ],
+        "objects": [
+            
+        ],
+        "mobs": [],
+    }),
+    14: Room({
+        "number": 15,
+        "name": "bathroom 3",
+        "description": "you are in a clean but &Gacrid&N smelling room, few items can be found here",
+        "indoors": True,
+        "terrain": "ground",
+        "exits": [
+            {"direction": "east", "roomId": 19},
+        ],
+        "objects": [
+            
+        ],
+        "mobs": [],
+    }),
+    16: Room({
+        "number": 16,
+        "name": "hallway seg 5",
+        "description": "you have found a crossroads of hallway. where will your adventure commence?",
+        "indoors": True,
+        "terrain": "ground",
+        "exits": [
+            {"direction": "north", "roomId": 15},
+            {"direction": "west", "roomId": 4},
+            {"direction": "south", "roomId": 17},
         ],
         "objects": [
             
