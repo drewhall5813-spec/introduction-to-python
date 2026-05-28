@@ -115,7 +115,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 5,
             "name": "Mr. Carlson's office",
-            "description": "Mr.C office is in side of the regular office. Mr.Carlson's office has a sword hanging on the wall. To the west is a wall,to the north is the regular office, east is a wall, up is the ceiling, \n down is the floor, and south is a wall.",
+            "description": "Mr.C office is in side of the regular office.\n Mr.Carlson's office has a sword hanging on the wall. \nTo the west is a wall,to the north is the regular office, east is a wall, up is the ceiling, \n down is the floor, and south is a wall.",
             "indoors": True,
             "terrain": "carpet floor",
             "exits": [
@@ -139,7 +139,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 6,
             "name": "teacher's lounge",
-            "description": "The teachers lounge is where teachers hang around when not teaching. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is the office.",
+            "description": "The teachers lounge is where teachers hang around when not teaching.\n To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is the office.",
             "indoors": True,
             "terrain": "carpet floor",
             "exits": [
@@ -163,7 +163,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 7,
             "name": "hallway",
-            "description": "This hallway is one of many and leads to the bathrooms, teacher lounge ,office,and janitors closet #1. To the west is the teacher lounge,to the north is more hallway, east is more hallway, up is the ceiling, \n down is the floor, and south is more hallway.",
+            "description": "This hallway is one of many and leads to the bathrooms,\n teacher lounge ,office,and janitors closet #1. To the west is the teacher lounge,to the north is more hallway, \neast is more hallway, up is the ceiling,  down is the floor, and south is more hallway.",
             "indoors": True,
             "terrain": "carpet floor",
             "exits": [
@@ -188,7 +188,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 8,
             "name": "hallway",
-            "description": "This hallway is one of many and leads to the bathrooms, teacher lounge ,office,and janitors closet #1. To the west is the boys bathroom, to the north is more hallway, east is a wall, up is the ceiling, \n down is the floor, and south is more hallway.",
+            "description": "This hallway is one of many and leads to the bathrooms,\n teacher lounge ,office,and janitors closet #1. To the west is the boys bathroom, \nto the north is more hallway, east is a wall, up is the ceiling, \n down is the floor, and south is more hallway.",
             "indoors": True,
             "terrain": "carpet floor",
             "exits": [
@@ -215,7 +215,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 9,
             "name": "hallway",
-            "description": "This hallway is one of many and leads to the bathrooms, teacher lounge ,office,and janitors closet #1. To the west is the janitor, to the north is more hallway, east is a wall, up is the ceiling, \n down is the floor, and south is more hallway.",
+            "description": "This hallway is one of many and leads to the bathrooms, \nteacher lounge ,office,and janitors closet #1. To the west is the janitor,\n to the north is more hallway, east is a wall, up is the ceiling, \n down is the floor, and south is more hallway.",
             "indoors": True,
             "terrain": "carpet floor",
             "exits": [
@@ -240,7 +240,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 10,
             "name": "hallway",
-            "description": "This hallway is one of many and leads to the bathrooms, teacher lounge ,office,and janitors closet #1. To the west is the girls bathroom, to the north is the blacktop, east is a wall, up is the ceiling, \n down is the floor, and south is more hallway.",
+            "description": "This hallway is one of many and leads to the bathrooms,\n teacher lounge ,office,and janitors closet #1. To the west is the girls bathroom,\n to the north is the blacktop, east is a wall, up is the ceiling, \n down is the floor, and south is more hallway.",
             "indoors": True,
             "terrain": "carpet floor",
             "exits": [
@@ -265,7 +265,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 11,
             "name": "blacktop",
-            "description": "The blacktop is a black cement parking lot where kids play during lunch. There are no cars. To the west is more blacktop, to the north is more blacktop, east is more blacktop, up is nothing but air, \n down is the blacktop, and south is the hallway inside of the school.",
+            "description": "The blacktop is a black cement parking lot where kids play during lunch. \nThere are no cars. To the west is more blacktop, to the north is more blacktop, \neast is more blacktop, up is nothing but air, down is the blacktop, and \nsouth is the hallway inside of the school.",
             "indoors": False,
             "terrain": "concrete",
             "exits": [
@@ -289,7 +289,7 @@ ROOMS: dict[int, Room] = {
          {
             "number": 12,
             "name": "boy's bathroom",
-            "description": "This is the boy's bathroom. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
+            "description": "This is the boy's bathroom. To the west is a wall,to the north is a wall, \neast is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
             "indoors": True,
             "terrain": "tile floor",
             "exits": [
@@ -313,7 +313,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 13,
             "name": "Janitor's closet #1",
-            "description": "The janitor's closet is where all the cleaning stuff is stored. Some students are routinely come in to get a rag and spray or a vacuum. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
+            "description": "The janitor's closet is where all the cleaning\n stuff is stored. Some students are routinely come in to get a rag \nand spray or a vacuum. To the west is a wall,to the north is a wall, \neast is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
             "indoors": True,
             "terrain": "concrete",
             "exits": [
@@ -337,7 +337,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 14,
             "name": "Girls bathroom",
-            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
+            "description": "This is the girls bathroom only for girls.\n To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
             "indoors": True,
             "terrain": "tile floor",
             "exits": [
@@ -361,7 +361,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 15,
             "name": "hallway",
-            "description": "This hallway is one of many and leads to the 3rd grade, 2nd grade, Mr.D's office, preschool, kindergarten, 4th grade, and 6th grade classrooms as well as more hallways.\n To the west is a hallway, to the north is 3rd grade classroom, east is the hallway, up is the ceiling, /n down is the floor, and south is the 2nd grade classroom.",
+            "description": "This hallway is one of many and leads to the \n3rd grade, 2nd grade, Mr.D's office, preschool, kindergarten, 4th grade,\n and 6th grade classrooms as well as more hallways.\n To the west is a hallway, to the north is 3rd grade classroom, east is \nthe hallway, up is the ceiling, /n down is the floor, and\n south is the 2nd grade classroom.",
             "indoors": True,
             "terrain": "carpet floor",
             "exits": [
@@ -385,7 +385,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 16,
             "name": "2rd grade classroom",
-            "description": "This is Mrs.Hollands 2nd grade classroom. There is a bunch of 2nd graders running around on their break.\n To the west is a wall,to the north is a hallway, east is the kindergarten classroom, up is the ceiling, \n down is the floor, and south is a door out of the building.",
+            "description": "This is Mrs.Hollands 2nd grade classroom.\n There is a bunch of 2nd graders running around on their break.\n To the west is a wall,to the north is a hallway, \neast is the kindergarten classroom, up is the ceiling, \n down is the floor, and south is a door out of the building.",
             "indoors": True,
             "terrain": "carpet floor",
             "exits": [
@@ -410,7 +410,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 17,
             "name": "3rd grade classroom",
-            "description": "This is Mrs.Mollers 3rd grade classroom. To the west is a wall, to the north is a door to the blacktop, east is a wall, up is the ceiling, \n down is the floor, and south is the hallway.",
+            "description": "This is Mrs.Mollers 3rd grade classroom. To the west\n is a wall, to the north is a door to the blacktop, east is a wall, up is the ceiling, \n down is the floor, and south is the hallway.",
             "indoors": True,
             "terrain": "carpet floor",
             "exits": [
@@ -434,7 +434,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 18,
             "name": "Kindergarten",
-            "description": "This is Mrs.Sylva's kindergarten classroom. To the west is the 2nd grade classroom, to the north is the hallway, east is a wall, up is the ceiling, /n down is the floor, and south is a door out of the building.",
+            "description": "This is Mrs.Sylva's kindergarten classroom. To the\n west is the 2nd grade classroom, to the north is the hallway,\n east is a wall, up is the ceiling, /n down is the floor, and\n south is a door out of the building.",
             "indoors": True,
             "terrain": "tile floor",
             "exits": [
@@ -457,14 +457,13 @@ ROOMS: dict[int, Room] = {
     19: Room(
         {
             "number": 19,
-            "name": "Girls bathroom",
-            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "name": "Mr.D's office",
+            "description": "This is Mr.D's Office.Its is a small room used \nfor counseling and for talking to naughty trouble makers. To\n the west is a wall,to the north is a wall, east is a \nwall, up is the ceiling, /n down is the floor, and south is the hallway.",
             "indoors": True,
             "terrain": "carpet floor",
             "exits": [
-                {"direction": "south", "roomId": 51},
-                {"direction": "west", "roomId": 16},
-                {"direction": "north", "roomId": 29},
+                {"direction": "south", "roomId": 29},
+                
             ],
             "objects": [
                 #O.spawn(""),
@@ -505,9 +504,9 @@ ROOMS: dict[int, Room] = {
     ),  
     21: Room(
         {
-            "number": 14,
-            "name": "Girls bathroom",
-            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "number": 21,
+            "name": "Preschool classroom",
+            "description": "This is the preschool classroom. A bunch of 4-5 year olds are coloring. To the west \nis a wall,to the north is a door to the blacktop, east is a wall, up is the ceiling, \n down is the floor, and south is the hallway.",
             "indoors": True,
             "terrain": "tile floor",
             "exits": [
@@ -529,14 +528,14 @@ ROOMS: dict[int, Room] = {
     ),  
     22: Room(
         {
-            "number": 14,
-            "name": "Girls bathroom",
-            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "number": 22,
+            "name": "hallway",
+            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway.\n To the west is a wall,to the north is the hallway, east is a wall, up is the ceiling, \n down is the floor, and south is a door to the outside of building.",
             "indoors": True,
-            "terrain": "tile floor",
+            "terrain": "concrete floor",
             "exits": [
-                {"direction": "east", "roomId": 10},
-                
+                {"direction": "south", "roomId": 53},
+                {"direction": "north", "roomId": 31},
             ],
             "objects": [
                 #O.spawn(""),
@@ -553,7 +552,7 @@ ROOMS: dict[int, Room] = {
     ),  
     23: Room(
         {
-            "number": 14,
+            "number": 23,
             "name": "Girls bathroom",
             "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
             "indoors": True,
