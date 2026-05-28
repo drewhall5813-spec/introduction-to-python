@@ -32,9 +32,9 @@ TEMPLATES: dict[str, dict] = {
         'room_description': "&CT&Bh&Ce &BS&Cw&Bo&Cr&Bd &Ct&Bh&Ca&Bt &CS&Be&Ca&Bl&Cs &Bt&Ch&Be &CD&Ba&Cr&Bk&Cn&Be&Cs&Bs&N lies here. Its light &Willuminates&N the ground around it.",
         'description': "The sword is beautiful. It was forged by the &GElves&N as a tool against the &rGreat Darkness&N. It glows softly with &Bbluish&N &Wlight&N",
         "weight":           5,
-        "dice":             "6d8",
-        "hitroll":          4,
-        "damroll":          4,
+        "dice":             "10d10",
+        "hitroll":          5,
+        "damroll":          5,
     },
     "hanging_tree" : {
         "spawn_as":         Object,
