@@ -29,7 +29,7 @@ TEMPLATES: dict[str, dict] = {
     },
     "the cheese monster": {
         "name": "the cheese monster",
-        "key_words": ("cheese", "monster"),
+        "key_words": ("cheese", "monster", "m"),
         "room_description": "&Wthe&N &yc&Yh&N&ye&Ye&N&ys&Ye&N &bmonster &Wsleeps here&N",
         "description": (
             "a cheese monster thinking into space "
@@ -45,7 +45,7 @@ TEMPLATES: dict[str, dict] = {
 
      "the cheez sniffer": {
         "name": "the &yc&Yh&N&ye&Ye&N&ys&Ye&N sniffer",
-        "key_words": ("cheese", "sniffer"),
+        "key_words": ("cheese", "sniffer", "s"),
         "room_description": "&Wthe&N &yc&Yh&N&ye&Ye&N&ys&Ye&N &bsniffer &Wsniffs around here&N",
         "description": (
             "a cheese sniffer sniffing around "
@@ -60,7 +60,7 @@ TEMPLATES: dict[str, dict] = {
         },
     "the cheese spirit": {
         "name": "the cheese spirit",
-        "key_words": ("cheese", "spirit"),
+        "key_words": ("cheese", "spirit", "sp"),
         "room_description": "&Wthe&N &yc&Yh&N&ye&Ye&N&ys&Ye&N &bspirit &Rhaunts&N &Wthis place&N",
         "description": (
             "a cheese spirit haunting this place "
@@ -88,7 +88,6 @@ TEMPLATES: dict[str, dict] = {
         "aggro": False,
         "wander": True,
         },
-        
 
 }
 
