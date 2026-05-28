@@ -26,10 +26,11 @@ TEMPLATES: dict[str, dict] = {
         ),
         "race": "Lizaroid",
         "class": "Sorcerer",
-        "level": 10,
+        "level": 2,
         "stats": [80, 50, 200, 90, 90, 70],
         "aggro": False,
         "wander": False,
+        "killable": True,
     },
     "unicorn_blob": {
         "name": "&MUnicorn Blob&N",
@@ -46,10 +47,11 @@ TEMPLATES: dict[str, dict] = {
         ),
         "race": "Slime",
         "class": "",
-        "level": 7,
+        "level": 1,
         "stats": [70, 50, 160, 20, 20, 100],
         "aggro": False,
         "wander": True,
+        "killable": True,
     },
 }
 
