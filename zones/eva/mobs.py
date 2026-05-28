@@ -38,40 +38,72 @@ TEMPLATES: dict[str, dict] = {
         ),
         "race": "Siren",
         "class": "bard",
-        "level": 5,
-        "stats": [50, 75, 10, 80, 70, 100],
+        "level": 30,
+        "stats": [70, 75, 60, 80, 70, 100],
         "aggro": False,
         "wander": True,
     },
     "Red kobold": {
         "name": "Jremblen",
         "key_words": ("kobold", "Red"),
-        "room_description": "a &rkobold&N stands here, looking through a &ybag&N full of &gm&Go&gs&Gs.&N",
+        "room_description": "A &rkobold&N stands here, looking through a &ybag&N full of &gm&Go&gs&Gs.&N",
         "description": (
             "A small &rkobold&n stands here looking through a &ybag&N, it seems to be filled with various different types of &gm&Go&gs&Gs&N.\n"
             "His scales are &rgarnet red&N."
         ),
         "race": "Kobold",
         "class": "rouge",
-        "level": 1,
-        "stats": [40, 50, 40, 30, 20, 40],
+        "level": 10,
+        "stats": [60, 50, 50, 30, 20, 40],
         "aggro": False,
         "wander": False,
+    },
+    "Excited_Child": {
+        "name": "Urchin",
+        "key_words": ("urchin", "child"),
+        "room_description": "A child sits here playing excitedly with her cat in the flowers",
+        "description": (
+            "A little girl that looks about 11 roughhouses with a &ybig orange cat&N in a patch of &YW&yy&Wl&Yd&yf&Wl&Yo&yw&We&Yr&ys&N.\n"
+            "She wears a manic grin across her face as she plays."
+        ),
+        "race": "half siren",
+        "class": "free loader",
+        "level": 15,
+        "stats": [90, 75, 95, 80, 70, 75],
+        "aggro": False,
+        "wander": True,
     },
     "Large_Orange_Cat": {
         "name": "Large Orange Cat",
         "key_words": ("cat", "orange", "large"),
-        "room_description": "A big &yorange cat&N sits here watching your movements with mild interest.",
-        "description": ("A fluffy &yorange tomcat&N of considerable size sits lazily on the floor.\n" 
-                       "His &Ggreen&N eyes follow you, seemingly out of boredom." 
+        "room_description": "A large &yorange cat&N stands here playing with a child in the flowers.",
+        "description": ("A fluffy &yorange tomcat&N of considerable size rolls in the &YW&yy&Wl&Yd&yf&Wl&Yo&yw&We&Yr&ys&N with an excited little girl.\n" 
+                       "His &ggreen eyes&N follow you as he roughhouse." 
                         ),
         "race": "cat",
         "class": "pet",
-        "level": 5,
-        "stats": [50, 50, 50, 50, 50, 50],
+        "level": 20,
+        "stats": [90, 70, 90, 70, 70, 70],
         "aggro": False,
         "wander": True,
     },
+"Eclectic_Rouge": {
+        "name": "Veery",
+        "key_words": ("rouge", "owlen", "veery"),
+        "room_description": "An owlen &Xrouge&N sits alone at a &ytable&N sorting through various &Wsh&Ci&Wny &Ct&Wri&Cn&Wke&Ct&Ws&N.",
+        "description": ("The owlen continues to grab various things from pockets and bags she is wearing and sort them into piles on the table.\n"
+            "None of the items on the table seem to have originally been hers. &RIt may be a good idea to keep a close eye on your&N &Yvaluables&N."
+        ),
+        "race": "owlen",
+        "class": "rouge",
+        "level": 25,
+        "stats": [80, 75, 65, 80, 70, 75],
+        "aggro": False,
+        "wander": False,
+    },
+
+
+
 }
 
 # Module-level spawn — rooms.py calls  M.spawn("void_guardian")
