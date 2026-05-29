@@ -21,8 +21,8 @@ TEMPLATES: dict[str, dict] = {
         "class": "",
         "level": 15,
         "stats": [75, 75, 75, 75, 75, 75],
-        "aggro": True,
-        "wander": True,
+        "aggro": False,
+        "wander": False,
     },
         "void_dragon": {
         "name": "Inanis the Void Dragon",

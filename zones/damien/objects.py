@@ -32,7 +32,7 @@ TEMPLATES: dict[str, dict] = {
         'room_description': "&CT&Bh&Ce &BS&Cw&Bo&Cr&Bd &Ct&Bh&Ca&Bt &CS&Be&Ca&Bl&Cs &Bt&Ch&Be &CD&Ba&Cr&Bk&Cn&Be&Cs&Bs&N lies here. Its light &Willuminates&N the ground around it.",
         'description': "The sword is beautiful. It was forged by the &GElves&N as a tool against the &rGreat Darkness&N. It glows softly with &Bbluish&N &Wlight&N",
         "weight":           25,
-        "dice":             "6d8",
+        "dice":             "3d3",
         "hitroll":          5,
         "damroll":          5,
     },
@@ -56,6 +56,19 @@ TEMPLATES: dict[str, dict] = {
         'key_words': ('feather', 'falcon'),
         'room_description': "A &xdark&N colored feather lies on the ground.",
         'description': "The feather is dark, from a falcon.",
+    },
+    "ethereal_cloak" : {
+        "spawn_as":         Item, 
+        "name": "an &methereal cloak&N",
+        "key_words": ("ethereal", "cloak"),
+        "room_description": "a discarded cloak lies on the ground",
+        "description": "There is nothing special about the cloak, yet you seem to feel a presence of &bdark magic&N.",
+        "wear_on":   "on_body",
+        "armor_type": "cloth",
+        "weight":    10.0,
+        "cost":      200,
+        "stat_mods": {"dex": 10},
+        "save_mods": {},
     },
 }
 

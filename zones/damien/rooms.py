@@ -31,16 +31,8 @@ ROOMS: dict[int, Room] = {
                 {"direction": "up", "roomId": 8},
             ],
             "objects": [
-                O.spawn("sack_of_darkness"),
-                O.spawn('hanging_tree'),
-                O.spawn('pile_of_goo'),
-                O.spawn('falcon_feather'),      
-            ],
-            "mobs": [
-                M.spawn("shadow_gremlin"),
-                M.spawn("dark_mage"),
-                M.spawn("dark_glob"),
-                M.spawn("falcon_spy"),
+                O.spawn('hanging_tree'),  
+                O.spawn('ethereal_cloak'),
             ],
         }
     ),
@@ -56,9 +48,9 @@ ROOMS: dict[int, Room] = {
                 {"direction": "west", "roomId": 5},
                 {"direction": "down", "roomId": 7},
             ],
-            "mobs": [
-                M.spawn("shadow_gremlin"),
-            ],
+            "objects": [
+                O.spawn("sack_of_darkness"),
+            ],          
         }
     ),
     3: Room(
@@ -71,12 +63,6 @@ ROOMS: dict[int, Room] = {
             "exits": [
                 {"direction": "north", "roomId": 1},
                 {"direction": "west", "roomId": 6},
-            ],
-            "objects": [
-                O.spawn("sack_of_darkness"),
-            ],
-            "mobs": [
-                M.spawn("dark_mage"),
             ],
         }
     ),
@@ -92,6 +78,9 @@ ROOMS: dict[int, Room] = {
                 {"direction": "south", "roomId": 6},
                 {"direction": "east", "roomId": 1},
             ],
+            "objects": [
+                O.spawn("pile_of_goo"),
+            ],                       
             "mobs": [
                 M.spawn("dark_glob"),
             ],            
@@ -108,19 +97,28 @@ ROOMS: dict[int, Room] = {
                 {"direction": "south", "roomId": 4},
                 {"direction": "east", "roomId": 2},
             ],
+            "objects": [
+                O.spawn("falcon_feather"),
+            ],                       
+            "mobs": [
+                M.spawn("falcon_spy"),
+            ],     
         }
     ),
     6: Room(
         {
             "number": 6,
-            "name": "Dead Fields",
-            "description": "The field is flat and covered with dead, brownish grass",
-            "indoors": False,
-            "terrain": "grass",
+            "name": "A Cave",
+            "description": "You enter a cave. It is entirely stone, and you see light from deeper down the path, possibly another exit.",
+            "indoors": True,
+            "terrain": "stone",
             "exits": [
                 {"direction": "north", "roomId": 4},
                 {"direction": "east", "roomId": 3},
             ],
+            "mobs": [
+                M.spawn("shadow_gremlin"),
+            ],     
         }
     ),
     7: Room(
