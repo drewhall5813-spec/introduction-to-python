@@ -49,7 +49,7 @@ ROOMS: dict[int, Room] = {
             "exits": [
                 {"direction": "west", "roomId": 3},
                 {"direction": "north", "roomId": 4},
-                 {"direction": "north", "roomId": 1},
+                 {"direction": "south", "roomId": 1},
             ],
             "objects": [
               #  O.spawn(""),
@@ -486,8 +486,8 @@ ROOMS: dict[int, Room] = {
             "indoors": True,
             "terrain": "tile floor",
             "exits": [
-                {"direction": "east", "roomId": 10},
-                
+                {"direction": "south", "roomId": 52},
+                {"direction": "north", "roomId": 30},
             ],
             "objects": [
                 #O.spawn(""),
@@ -510,8 +510,8 @@ ROOMS: dict[int, Room] = {
             "indoors": True,
             "terrain": "tile floor",
             "exits": [
-                {"direction": "east", "roomId": 10},
-                
+                {"direction": "south", "roomId": 29},
+                {"direction": "north", "roomId": 42},
             ],
             "objects": [
                 #O.spawn(""),
@@ -553,6 +553,295 @@ ROOMS: dict[int, Room] = {
     23: Room(
         {
             "number": 23,
+            "name": "4th grade classroom",
+            "description": "This is Mrs.Vrooman's 4th grade classroom. There is a small library\n int he corner of the room with a few graphic novels. To the west is a wall\n,to the north is a door to the blacktop, east is a wall, up is the ceiling, \n down is the floor, and south is the hallway.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "north", "roomId": 41},
+                {"direction": "south", "roomId": 30},
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    24: Room(
+        {
+            "number": 24,
+            "name": "hallway",
+            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway\n. To the west is a wall,to the north is a door to the black top, east is a wall of bathrooms (the bathrooms are not open yet), up is the ceiling, /n down is the floor, and south is more hallway.",
+            "indoors": True,
+            "terrain": "concrete",
+            "exits": [
+                {"direction": "north", "roomId": 40},
+                {"direction": "south", "roomId": 31},
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    25: Room(
+        {
+            "number": 25,
+            "name": "Mr. Westmark's office",
+            "description": "This is Mr. Westmark's office. A one weal is on the wall in this tiny little room.\n To the west is a wall,to the north is the hallway, east is a wall, up is the ceiling, \n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "carpet floor",
+            "exits": [
+                {"direction": "north", "roomId": 32},
+              
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    26: Room(
+        {
+            "number": 26,
+            "name": "Highschool science lab",
+            "description": "This is Mrs.Millers science lab. This room is a big room\n with circular tables and to tv's. To the west is a wall,\nto the north is the hallway, east is a wall, up is the ceiling, \n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "concrete",
+            "exits": [
+                {"direction": "north", "roomId": 32},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    27: Room(
+        {
+            "number": 27,
+            "name": "Highschool History classroom",
+            "description": "This is Ms. Allison's highschool history \n classroom. Only boring highschoolers hang in here.\n To the west is a wall,to the north is a wall, east is a wall, up is the ceiling, \n down is the floor, and south is a door to the outside of the building."          "indoors": True,
+            "terrain": "concrete",
+            "exits": [
+                {"direction": "south", "roomId": 54},
+                {"direction": "north", "roomId": 33},
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    28: Room(
+        {
+            "number": 28,
+            "name": "7th & 8th history classroom",
+            "description": "this is Mrs.Allisons Jr high classroom. This is a\n dim light room with a very calm feeling. To the west is a wall,to the north\n is the hallway, east is a wall, up is the ceiling, \n down is the floor, and south is a door to the outside of the building.",
+            "indoors": True,
+            "terrain": "concrete",
+            "exits": [
+                {"direction": "south", "roomId": 55},
+                {"direction": "north", "roomId": 34},
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    29: Room(
+        {
+            "number": 29,
+            "name": "hallway",
+            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway.\n. To the west is more hallway, to the north is Mr.D's office and preschool, east is the hallway, up is the ceiling, \n down is the floor, and south is kindergarten.",
+            "indoors": True,
+            "terrain": "carpet",
+            "exits": [
+                {"direction": "east", "roomId": 15},
+                {"direction": "west", "roomId": 30},
+                {"direction": "north", "roomId": 19},
+            #    {"direction": "north", "roomId": 21},
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    30: Room(
+        {
+            "number": 30,
+            "name": "hallway",
+            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway.\n To the west is more hallway,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    31: Room(
+        {
+            "number": 31,
+            "name": "hallway",
+            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway. To the west\n is a wall,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    32: Room(
+        {
+            "number": 32,
+            "name": "hallway",
+            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway.\n To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    33: Room(
+        {
+            "number": 33,
+            "name": "hallway",
+            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway.\n To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    34: Room(
+        {
+            "number": 34,
+            "name": "hallway",
+            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway.\n To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    35: Room(
+        {
+            "number": 35,
             "name": "Girls bathroom",
             "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
             "indoors": True,
@@ -574,9 +863,463 @@ ROOMS: dict[int, Room] = {
             ],
         }
     ),  
-    24: Room(
+   # 36: Room(
+      #  {
+          #  "number": 36,
+          #  "name": "Girls bathroom",
+         #   "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+         #   "indoors": True,
+          #  "terrain": "tile floor",
+          #  "exits": [
+          #      {"direction": "east", "roomId": 10},
+                
+          #  ],
+          #  "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+          #  ],
+          #  "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+        #    ],
+       ##  ),  
+    #37: Room(
+      #  {
+           # "number": 37,
+          #  "name": "Girls bathroom",
+         #   "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+         #   "indoors": True,
+          #  "terrain": "tile floor",
+          #  "exits": [
+          #      {"direction": "east", "roomId": 10},
+                
+          #  ],
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+           # ],
+          #  "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+         #   ],
+       # }
+   # ),  
+   # 38: Room(
+       # {
+          #  "number": 38,
+          #  "name": "Girls bathroom",
+          #  "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+          #  "indoors": True,
+          #  "terrain": "tile floor",
+           # "exits": [
+           #     {"direction": "east", "roomId": 10},
+                
+           # ],
+        #    "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+        #    ],
+        #    "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+       #     ],
+     #   }
+  #  ),  
+  #  39: Room(
+     #   {
+          #  "number": 39,
+       #     "name": "Girls bathroom",
+       #     "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+        #    "indoors": True,
+         #   "terrain": "tile floor",
+          #  "exits": [
+           #     {"direction": "east", "roomId": 10},
+                
+       #     ],
+        #    "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+      #      ],
+       #     "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+        #    ],
+   #     }
+  #  ),  
+    40: Room(
         {
-            "number": 14,
+            "number": 40,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    41: Room(
+        {
+            "number": 41,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    42: Room(
+        {
+            "number": 42,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    43: Room(
+        {
+            "number": 43,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    44: Room(
+        {
+            "number": 44,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    45: Room(
+        {
+            "number": 45,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    46: Room(
+        {
+            "number": 46,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    47: Room(
+        {
+            "number": 47,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    48: Room(
+        {
+            "number": 48,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    49: Room(
+        {
+            "number": 49,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    50: Room(
+        {
+            "number": 50,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    51: Room(
+        {
+            "number": 51,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    52: Room(
+        {
+            "number": 52,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    53: Room(
+        {
+            "number": 53,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    54: Room(
+        {
+            "number": 54,
+            "name": "Girls bathroom",
+            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "indoors": True,
+            "terrain": "tile floor",
+            "exits": [
+                {"direction": "east", "roomId": 10},
+                
+            ],
+            "objects": [
+                #O.spawn(""),
+                #O.spawn(""),
+                #O.spawn("")
+            ],
+            "mobs": [  
+#                M.spawn("") ,
+#                M.spawn(""),
+#                M.spawn(""),
+#                
+            ],
+        }
+    ),  
+    55: Room(
+        {
+            "number": 55,
             "name": "Girls bathroom",
             "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
             "indoors": True,
