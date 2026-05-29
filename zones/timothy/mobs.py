@@ -121,6 +121,34 @@ TEMPLATES: dict[str, dict] = {
         "aggro": True,
         "wander": False,
     },
+      "Ebony Guard": {
+        "name": "Ebony Guard",
+        "key_words": ("Ebony", "Guard"),
+        "room_description": "An &XEbony Guard&n stands at attention.&N",
+        "description": (
+            "A large creature clad in a brilliant black armor.\n"
+        ),
+        "race": "Voidkin",
+        "class": "guard",
+        "level": 40,
+        "stats": [80, 80, 80, 90, 60, 60],
+        "aggro": True,
+        "wander": False,
+    },
+     "Ebony King": {
+        "name": "Ebony King",
+        "key_words": ("Ebony", "King"),
+        "room_description": "The &XEbony King&n sits upon his throne.&N",
+        "description": (
+            "The king of the &XVoidkins&n with a &Xflowing black cape&n and &Xdark ebony crown&n .\n"
+        ),
+        "race": "Voidkin",
+        "class": "boss",
+        "level": 60,
+        "stats": [90, 90, 90, 90, 80, 70],
+        "aggro": True,
+        "wander": False,
+    },
 }
 # Module-level spawn — rooms.py calls  M.spawn("void_guardian")
 spawn = make_spawner(TEMPLATES, lambda: Mob)
