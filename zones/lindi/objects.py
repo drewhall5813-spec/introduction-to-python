@@ -14,14 +14,6 @@ from ashenmoor.world import Object, Item, Weapon
 from ashenmoor.world.zone import make_spawner
 
 TEMPLATES: dict[str, dict] = {
-    "whiteboard_marker": {
-        "spawn_as":         Object,
-        "name":             "whiteboard marker",
-        "key_words":        ("green", "whiteboard", "marker"),
-        "room_description": "an &gw&Nh&gi&Nt&ge&Nb&go&Na&gr&Nd &Bm&Na&Br&Nk&Be&Nr sits here&N.",
-        "description":      "A &gf&No&gr&Ne&gs&Nt &gg&Nr&ge&Ne&gn&N low-scent dry-erase marker, about half used.",
-    },
-
     "pencil": {
         "spawn_as":         Item,
         "name":             "pencil",
@@ -57,6 +49,7 @@ TEMPLATES: dict[str, dict] = {
          'description': "this old wooden fork stands taller than the average student, would most likely bring &ytetanus&N upon its victim",
          "weight":           4,
      },
+    },
     # # #  "" : {
     # # #     "spawn_as":         ,
     # # #     'name': "",
@@ -74,7 +67,7 @@ TEMPLATES: dict[str, dict] = {
     # # #     "weight":           4,
     # # # },
 
-}
+
 
 # Module-level spawn — rooms.py calls  O.spawn("red_marker")
 spawn = make_spawner(TEMPLATES, lambda: Object)

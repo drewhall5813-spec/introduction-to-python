@@ -24,9 +24,7 @@ ROOMS: dict[int, Room] = {
         "exits": [
             {"direction": "south", "roomId": 2},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     7: Room({
@@ -38,9 +36,7 @@ ROOMS: dict[int, Room] = {
         "exits": [
             {"direction": "north", "roomId": 1},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     8: Room({
@@ -52,9 +48,7 @@ ROOMS: dict[int, Room] = {
         "exits": [
             {"direction": "south", "roomId": 4},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     9: Room({
@@ -66,9 +60,7 @@ ROOMS: dict[int, Room] = {
         "exits": [
             {"direction": "south", "roomId": 3},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     10: Room({
@@ -80,9 +72,7 @@ ROOMS: dict[int, Room] = {
         "exits": [
             {"direction": "east", "roomId": 9},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     11: Room({
@@ -94,9 +84,7 @@ ROOMS: dict[int, Room] = {
         "exits": [
             {"direction": "north", "roomId": 3},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     1: Room({
@@ -111,9 +99,7 @@ ROOMS: dict[int, Room] = {
             {"direction": "north", "roomId": 5},
             {"direction": "west", "roomId": 99004},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     2: Room({
@@ -128,9 +114,7 @@ ROOMS: dict[int, Room] = {
             {"direction": "west", "roomId": 1},
             {"direction": "north", "roomId": 6},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     3: Room({
@@ -145,9 +129,7 @@ ROOMS: dict[int, Room] = {
             {"direction": "west", "roomId": 2},
             {"direction": "north", "roomId": 7},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     4: Room({
@@ -158,10 +140,11 @@ ROOMS: dict[int, Room] = {
         "terrain": "ground",
         "exits": [
             {"direction": "north", "roomId": 8},
+            {"direction": "west", "roomId": 3},
+            {"direction": "east", "roomId": 16},
+            {"direction": "south", "roomId": 11},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     15: Room({
@@ -173,9 +156,7 @@ ROOMS: dict[int, Room] = {
         "exits": [
             {"direction": "north", "roomId": 16},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     
@@ -188,13 +169,11 @@ ROOMS: dict[int, Room] = {
         "exits": [
             {"direction": "east", "roomId": 17},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     13: Room({
-        "number": 15,
+        "number": 13,
         "name": "bathroom 2",
         "description": "you are in a clean but &Gacrid&N smelling room, few items can be found here",
         "indoors": True,
@@ -202,13 +181,11 @@ ROOMS: dict[int, Room] = {
         "exits": [
             {"direction": "east", "roomId": 18},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     14: Room({
-        "number": 15,
+        "number": 14,
         "name": "bathroom 3",
         "description": "you are in a clean but &Gacrid&N smelling room, few items can be found here",
         "indoors": True,
@@ -216,9 +193,7 @@ ROOMS: dict[int, Room] = {
         "exits": [
             {"direction": "east", "roomId": 19},
         ],
-        "objects": [
-            
-        ],
+        "objects": [],
         "mobs": [],
     }),
     16: Room({
@@ -232,10 +207,8 @@ ROOMS: dict[int, Room] = {
             {"direction": "west", "roomId": 4},
             {"direction": "south", "roomId": 17},
         ],
-        "objects": [
-            
-        ],
-        "mobs": [],
+        "objects": [],
+        "mobs": ["Enemy"],
     }),
 
 }

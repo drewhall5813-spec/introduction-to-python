@@ -12,12 +12,12 @@ from ashenmoor.world import Mob
 from ashenmoor.world.zone import make_spawner
 
 TEMPLATES: dict[str, dict] = {
-    "beanbag monster": {
-        "name": "beanbag monster",
-        "key_words": ("beanbag", "monster"),
-        "room_description": "&wa wretched &Pbeanbag monster&N sits in a corner with a devious look.&N",
+    "purple beanbag": {
+        "name": " purple beanbag",
+        "key_words": ("purple", "beanbag"),
+        "room_description": "&wa &Pbeanbag&N sits in a corner.&N",
         "description": (
-            "a medium monster that it fuzzy and purple, it seems to want a fight.\n"
+            "behold it is actually a monster.\n"
         ),
         "race": "Human",
         "class": "Student",
@@ -25,7 +25,22 @@ TEMPLATES: dict[str, dict] = {
         "stats": [10, 10, 10, 10, 10, 10],
         "aggro": False,
         "killable": True,
-        "wander": True
+        "wander": False
+    },
+    " grey beanbag": {
+        "name": "grey beanbag",
+        "key_words": ("grey", "beanbag"),
+        "room_description": "&wa &Xbeanbag&N sits in a corner.&N",
+        "description": (
+            "you have been fooled, tis a monster!\n"
+        ),
+        "race": "Human",
+        "class": "Student",
+        "level": 19,
+        "stats": [10, 10, 10, 10, 10, 10],
+        "aggro": False,
+        "killable": True,
+        "wander": False
     },
     "Mr. Carlson": {
         "name": "Mr. Carlson",
@@ -43,20 +58,20 @@ TEMPLATES: dict[str, dict] = {
         "killable": False,
         "wander": True
     },
-    "fellow_student": {
-        "name": "fellow student",
-        "key_words": ("fellow", "student"),
-        "room_description": "&wa friend of yours sits nearby.&N",
+    "Enemy": {
+        "name": "Enemy",
+        "key_words": ("Enemy"),
+        "room_description": "&wa &Xdark&N figure stands with &rhate&N in his posture.&N",
         "description": (
-            "she sits, focused upon her work."
+            "this being is the schools strongest nemesis, he has fought with the attendants for centuries."
         ),
-        "race": "Human",
-        "class": "Student",
-        "level": 3,
-        "stats": [65, 65, 65, 80, 65, 65],
-        "aggro": False,
-        "killable": False,
-        "wander": False,
+        "race": "Celestial",
+        "class": "Enemy",
+        "level": 50,
+        "stats": [100, 100, 100, 100, 100, 100],
+        "aggro": True,
+        "killable": True,
+        "wander": True,
     }
 }
 # Module-level spawn — rooms.py calls  M.spawn("void_guardian")
