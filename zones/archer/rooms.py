@@ -19,13 +19,13 @@ ROOMS: dict[int, Room] = {
         {
             "number": 1,
             "name": "&xW&yo&xo&yd&xl&xa&yn&xd&N Manor",
-            "description": "A heavily fortified mansion, your currently surrounded by Illriggers, the exit is due &Yeast&N",
+            "description": "A heavily fortified mansion, your currently surrounded by Illriggers, the exit is due &BSouth&N",
             "indoors": True,
             "terrain": "floors, rooms, stairs, hallways, ceiling, and walls",
             "exits": [
                 {"direction": "north", "roomId": 2},
-                {"direction": "south", "roomId": 3},
-                {"direction": "east", "roomId": 99002, "external": True},
+                {"direction": "south", "roomId": 99002, "external": True},
+                {"direction": "east", "roomId": 3},
                 {"direction": "west", "roomId": 4},
                 {"direction": "up", "roomId": 6},
             ],
@@ -51,9 +51,6 @@ ROOMS: dict[int, Room] = {
                     {"direction": "east", "roomId": 4},
                     {"direction": "west", "roomId": 5},
                 ],
-                "objects": [
-                    O.spawn("Potion of Turtle Master"),
-                ],
                 "mobs": [ 
                     M.spawn("&RIllrigger Rogue&N"),
                 ],
@@ -69,7 +66,7 @@ ROOMS: dict[int, Room] = {
                 "indoors": True,
                 "terrain": "floors, cells, ceiling, and walls",
                 "exits": [
-                    {"direction": "north", "roomId": 1}
+                    {"direction": "west", "roomId": 1}
                 ],
                 "mobs": [ 
                     M.spawn("&yImprisoned Illrigger&N"),
@@ -101,9 +98,9 @@ ROOMS: dict[int, Room] = {
                 "exits": [
                     {"direction": "south", "roomId": 2},
                 ],
-                 "objects": [
-                    O.spawn("Potion of Strength II"),
-                 ],
+                "objects": [
+                    O.spawn("Copper Sword"),
+                ],
             }
         ),
         6: Room(
@@ -210,9 +207,9 @@ ROOMS: dict[int, Room] = {
                     {"direction": "south", "roomId": 11},
                 ],
                 "mobs": [ 
-                    M.spawn("&MSlime&N"),
-                    M.spawn("&MSlime&N"),
-                    M.spawn("&MSlime&N"),
+                    M.spawn("&MPink Slime&N"),
+                    M.spawn("&MPink Slime&N"),
+                    M.spawn("&MPink Slime&N"),
                 ],
             }
         ),
@@ -227,11 +224,8 @@ ROOMS: dict[int, Room] = {
                     {"direction": "north", "roomId": 11},
                 ],
                 "mobs": [ 
-                    M.spawn("&MSlime&N"),
+                    M.spawn("&BBlue Slime&N"),
                 ],
-                "objects": [
-                    M.spawn("Potion of Strength II")
-                ]
             }
         ),
         14: Room(
@@ -246,10 +240,10 @@ ROOMS: dict[int, Room] = {
                 ],
                 "mobs": [ 
                     M.spawn("&YKing &MSlime&N"),
-                    M.spawn("Zombies"),
                     M.spawn("Zombie"),
-                    M.spawn("&MSlime"),
-                    M.spawn("&MSlime"),
+                    M.spawn("Zombie"),
+                    M.spawn("&GGreen Slime&N"),
+                    M.spawn("&GGreen Slime&N"),
                 ],
             }
         ),
@@ -264,10 +258,10 @@ ROOMS: dict[int, Room] = {
                     {"direction": "west", "roomId": 11},
                 ],
                 "mobs": [ 
-                    M.spawn("&MSlime"),
-                    M.spawn("&MSlime"),
-                    M.spawn("&MSlime"),
-                    M.spawn("&MSlime"),
+                    M.spawn("&MPink Slime&N"),
+                    M.spawn("&MPink Slime&N"),
+                    M.spawn("&GGreen Slime&N"),
+                    M.spawn("&BBlue Slime&N"),
                 ],
             }
         ),

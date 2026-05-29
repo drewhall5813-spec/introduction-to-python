@@ -31,6 +31,29 @@ TEMPLATES: dict[str, dict] = {
         "room_description": "a &wPotion of Turtle Master&N has been carelessly discarded here.&N",
         "description":      "A potion that grants defense and slowness, about empty.",
     },
+   
+    "Copper Sword": {
+        "spawn_as":     Weapon,
+        "name":      "&yCopper Sword&N",
+        "room_description": "A &yCopper Sword&N lies here.",
+        "key_words": ("copper", "sword",),
+        "wear_on":   "primary_hand",
+        "dice":    "1d6", 
+        "hitroll": +3,   
+        "damroll": -8,  
+        "two_handed": False,
+        "finesse":    True, 
+        "light":      False,
+        "thrown":     False,
+        "reach":      False,
+        "versatile":       False,
+        "versatile_dice":  "1d8",
+        "is_shield": False,
+        "weight":    2.0,
+        "cost":      50,
+        "stat_mods": {},
+        "save_mods": {},
+    },    
 }
 
 # Module-level spawn — rooms.py calls  O.spawn("red_marker")

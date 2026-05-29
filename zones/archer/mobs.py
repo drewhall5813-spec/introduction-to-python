@@ -63,18 +63,50 @@ TEMPLATES: dict[str, dict] = {
 
     },
 
-    "&MSlime&N": {
-        "name": "Slime" ,
-        "key_words": ("slime"),
-        "room_description": "hey look! free &MX&GP&N!",
+    "&MPink Slime&N": {
+        "name": "Pink Slime" ,
+        "key_words": ("pink", "slime"),
+        "room_description": "&Mpink&N sticky blobs of slimes, they're filled with &GX&MP&N",
         "description": (
             "Slimy idiots with zero intelligence...",
         ),
         "race": "Unknown",
         "class": "Unknown",
         "level": 34,
-        "stats": [0, 1, 1, 0, 1, 0],
-        "aggro": True,
+        "stats": [0, 0, 0, 0, 1, 0],
+        "aggro": False,
+        "wander": True,
+        "killable": True,
+    },
+
+    "&BBlue Slime&N": {
+        "name": "Blue Slime" ,
+        "key_words": ("blue", "slime"),
+        "room_description": "&Bblue&N sticky blobs of slimes, they're filled with &GX&MP&N, and appearently bigger than the &MPink Slime&N",
+        "description": (
+            "Slimy idiots with zero intelligence...",
+        ),
+        "race": "Unknown",
+        "class": "Unknown",
+        "level": 37,
+        "stats": [1, 1, 1, 0, 2, 0],
+        "aggro": False,
+        "wander": True,
+        "killable": True,
+    },
+
+    "&GGreen Slime&N": {
+        "name": "Green Slime" ,
+        "key_words": ("green", "slime"),
+        "room_description": "&GGreen&N sticky blobs of slimes, they're filled with &GX&MP&N, and appearently bigger than both the &BBlue Slime&N and the &MPink Slime&N",
+        "description": (
+            "Slimy idiots with zero intelligence...",
+        ),
+        "race": "Unknown",
+        "class": "Unknown",
+        "level": 39,
+        "stats": [2, 2, 2, 0, 3, 0],
+        "aggro": False,
         "wander": True,
         "killable": True,
     },
@@ -100,7 +132,7 @@ TEMPLATES: dict[str, dict] = {
         "key_words": ("zombie"),
         "room_description": "looks like these Zombies are hungry",
         "description": (
-            "they may eat brains but i dont think it makes them smarter",
+            "they may eat brains but I dont think it makes them smarter",
         ),
         "race": "Undead",
         "class": "Barbarian",
