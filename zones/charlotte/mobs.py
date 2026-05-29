@@ -15,7 +15,7 @@ TEMPLATES: dict[str, dict] = {
         "Mrs.Stacey": {
         "name": "&BM&N&R&R&N&BS&N&R.S&N&Bt&N&Ra&N&Bc&N&Re&N&By&N ",
         "key_words": ("Stacey"),
-        "room_description": "Mrs.Stacey wanders from here to there helping students and teachers.",
+        "room_description": "Mrs. Stacey wanders from here to there helping students and teachers.",
         "description": (
             "Mrs.Stacey is the secretary, She is the person who runs the office.\n"
             "She is always wearing a set of keys that may be use full for any door in this building."

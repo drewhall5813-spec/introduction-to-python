@@ -721,14 +721,16 @@ ROOMS: dict[int, Room] = {
     ),  
     30: Room(
         {
-            "number": 30,
+            "number": 30, 
             "name": "hallway",
-            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway.\n To the west is more hallway,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
+            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway.\n To the west is more hallway,to the north is the 4th grade classroom, east is the hallway, up is the ceiling, \n down is the floor, and south is 6th grade classroom.",
             "indoors": True,
-            "terrain": "tile floor",
+            "terrain": "carpet floor",
             "exits": [
-                {"direction": "east", "roomId": 10},
-                
+                {"direction": "east", "roomId": 31},
+                {"direction": "west", "roomId": 29},
+                {"direction": "north", "roomId": 23},
+                {"direction": "south", "roomId": 20},
             ],
             "objects": [
                 #O.spawn(""),
@@ -747,12 +749,14 @@ ROOMS: dict[int, Room] = {
         {
             "number": 31,
             "name": "hallway",
-            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway. To the west\n is a wall,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
+            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway. To the west\n is more hallway,to the north is more hallway, east is the hallway, up is the ceiling, \n down is the floor, and south is also more hallway.",
             "indoors": True,
-            "terrain": "tile floor",
+            "terrain": "carpet floor",
             "exits": [
-                {"direction": "east", "roomId": 10},
-                
+                {"direction": "north", "roomId": 24},
+                {"direction": "south", "roomId": 22},
+                {"direction": "east", "roomId": 30},
+                {"direction": "west", "roomId": 32},
             ],
             "objects": [
                 #O.spawn(""),
@@ -771,9 +775,9 @@ ROOMS: dict[int, Room] = {
         {
             "number": 32,
             "name": "hallway",
-            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway.\n To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
+            "description": "This hallway is one of many and leads to a door outside \nof the building and the highschool bathrooms as well as another hallway.\n To the west is more hallway, to the north is the 7th-10th grade\n english room, east is the hallway, up is the ceiling, \n down is the floor, and south is Mr. Westmarks office and the highschool science lab.",
             "indoors": True,
-            "terrain": "tile floor",
+            "terrain": "carpet floor",
             "exits": [
                 {"direction": "east", "roomId": 10},
                 
