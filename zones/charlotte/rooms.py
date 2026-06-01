@@ -650,7 +650,7 @@ ROOMS: dict[int, Room] = {
         {
             "number": 27,
             "name": "Highschool History classroom",
-            "description": "This is Ms. Allison's highschool history \n classroom. Only boring highschoolers hang in here.\n To the west is a wall,to the north is a wall, east is a wall, up is the ceiling, \n down is the floor, and south is a door to the outside of the building."         
+            "description": "This is Ms. Allison's highschool history \n classroom. Only boring highschoolers hang in here.\n To the west is a wall,to the north is a wall, east is a wall, up is the ceiling, \n down is the floor, and south is a door to the outside of the building.",         
             "indoors" True,
             "terrain": "concrete",
             "exits": [
@@ -1169,12 +1169,12 @@ ROOMS: dict[int, Room] = {
         {
             "number": 48,
             "name": "7th science classroom",
-            "description": ". To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "description": "This is Mr.Stubblefield's 7th grade science classroom.\n Quite the big classroom for a few students.\n To the west is a wall, to the north is a door to the blacktop, east is a wall, up is the ceiling, \n down is the floor, and south is the hallway.",
             "indoors": True,
-            "terrain": "tile floor",
+            "terrain": "concrete",
             "exits": [
-                {"direction": "east", "roomId": 10},
-                
+                {"direction": "north", "roomId": 45},
+                {"direction": "south", "roomId": 33},
             ],
             "objects": [
                 #O.spawn(""),
@@ -1193,12 +1193,12 @@ ROOMS: dict[int, Room] = {
         {
             "number": 49,
             "name": "Mr.Millers classroom",
-            "description": "Mr. Millers classroom is the only class room that it is unknown what classes are taught in there. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "description": "Mr. Millers classroom is the only class room that it is unknown\n what classes are taught in there. To the west is a wall,\nto the north is a door to the blacktop, east is a wall, up is the ceiling, \n down is the floor, and south is a the hallway.",
             "indoors": True,
-            "terrain": "tile floor",
+            "terrain": "concrete",
             "exits": [
-                {"direction": "east", "roomId": 10},
-                
+                {"direction": "north", "roomId": 46},
+                {"direction": "south", "roomId": 34},
             ],
             "objects": [
                 #O.spawn(""),
@@ -1216,13 +1216,14 @@ ROOMS: dict[int, Room] = {
     50: Room(
         {
             "number": 50,
-            "name": "Girls bathroom",
-            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
-            "indoors": True,
-            "terrain": "tile floor",
+            "name": "The outside ",
+            "description": "This is the outside of the school.\n More of it will be unlocked shortly.\n To the west is the doors into the school, to the north \nis the 2nd grade classroom, east is  more of the out side, up is the ceiling, \n down is the floor, and south is nothing for now.",
+            "indoors": False,
+            "terrain": "concrete",
             "exits": [
-                {"direction": "east", "roomId": 10},
-                
+                {"direction": "north", "roomId": 16},
+                {"direction": "east", "roomId": 51},
+                {"direction": "west", "roomId": 1},
             ],
             "objects": [
                 #O.spawn(""),
