@@ -99,10 +99,32 @@ ROOMS: dict[int, Room] = {
             "terrain": "water, rock",
             "exits": [
                 {"direction": "south", "roomId": 4},
+                {"direction": "up", "roomId": 6},
             ],
-            "objects": [O.spawn("Sword of Coral"),],
+            "objects": [
+                O.spawn("Sword of Coral"),
+            ],
             "mobs": [
                 M.spawn("Flappers the Super Dolphin"),
+            ],
+        }
+    ),
+    6: Room(
+        {
+            "number": 6,
+            "name": "&GForest&N Arena",
+            "description": "&WIt is a large arena, around 4.5 football fields, with a &mpurple crystal &Wcenter and two stone pillars displaying health&N",
+            "indoors": False,
+            "terrain": "stone",
+            "exits": [
+                {"direction": "south", "roomId": 4},
+            ],
+            "objects": [
+                O.spawn("Arm canon"),
+            ],
+            "mobs": [
+                M.spawn("Malice"),
+                M.spawn("Mayhem"),
             ],
         }
     ),

@@ -117,6 +117,36 @@ TEMPLATES: dict[str, dict] = {
         "aggro": False,
         "wander": True,
     },
+    "Malice": {
+        "name": "Malice",
+        "key_words": ("malice", "m", "ma"),
+        "room_description": "&mMalice &Wstands at the other end of the &+Rarena agitated\n She seems aggressive&N",
+        "description": (
+            "&WShe has a robot body made out of titanium\n"
+            "She is kinda sorta strong. Just beat her at a later level though to prevent humiliation&N"
+        ),
+        "race": "Robot",
+        "class": "Fighter",
+        "level": 57,
+        "stats": [84, 79, 54, 86, 78, 67],
+        "aggro": True,
+        "wander": False,
+    },
+    "Mayhem": {
+        "name": "Mayhem",
+        "key_words": ("Mayhem", "my"),
+        "room_description": "&RMayhem &Wstands right next to &mMalice, looking equally as aggressive&N",
+        "description": (
+            "&WHe is not skinny and is instead massive\n"
+            "Instead of an agile type, he is a power type"
+        ),
+        "race": "Robot",
+        "class": "Fighter",
+        "level": 61,
+        "stats": [102, 79, 53, 78, 64, 69],
+        "aggro": True,
+        "wander": False,
+    },
 }
 
 # Module-level spawn — rooms.py calls  M.spawn("void_guardian")
