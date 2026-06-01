@@ -54,7 +54,7 @@ TEMPLATES: dict[str, dict] = {
         "race": "cheese",
         "class": "sniffr guy",
         "level": 14,
-        "stats": [10 ,48 ,23 ,92 ,16 ,82 ],
+        "stats": [10 ,48 ,23 ,92 ,16 ,82],
         "aggro": False,
         "wander": False,
         },
@@ -68,11 +68,12 @@ TEMPLATES: dict[str, dict] = {
         ),
         "race": "cheese",
         "class": "spirit guy",
-        "level": 42,
-        "stats": [80, 80, 80, 80, 80, 80],
+        "level": 50,
+        "stats": [100, 80, 80, 80, 80, 80],
         "aggro": False,
         "wander": False,
         },
+
     "the cheesy bird": {
         "name": "the &Yc&N&yh&Ye&N&ye&Ys&N&yy&Y&N &Bbird",
         "key_words": ("cheesy", "bird"),
@@ -88,8 +89,21 @@ TEMPLATES: dict[str, dict] = {
         "aggro": False,
         "wander": True,
         },
-
-}
+    "the chez fih": {
+        "name": "the &Ychez&N &bfih&N",
+        "key_words": ("chez", "fih"),
+        "room_description": "&Wthe&N &Ychez&N &bfih&N swims around. ",
+        "description": (
+            "a &Ychez&N &bfih&N swims around looking for his fren"
+        ),
+        "race": "chez",
+        "class": "fih",
+        "level": "4",
+        "stats": [10, 10, 10, 10, 10, 10],
+        "aggro": False,
+        "wander": True,
+    },
+},
 
 
 # Module-level spawn — rooms.py calls  M.spawn("void_guardian")
