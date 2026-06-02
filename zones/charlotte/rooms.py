@@ -25,7 +25,7 @@ ROOMS: dict[int, Room] = {
             "terrain": "concrete",
             "exits": [
                 {"direction": "north", "roomId": 2},
-                {"direction": "up", "roomId": 99002, "external": True}
+                {"direction": "up", "roomId": 99002, "external": True},
                 {"direction": "east", "roomId": 50},
             ],
             "objects": [
@@ -1244,10 +1244,11 @@ ROOMS: dict[int, Room] = {
             "name": "The outside",
             "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is more of the outside, to the \nnorth is a door to the kindergarten classroom,\n east is more of the outside, up is the ceiling, \n down is the floor, and south is nothing for now.",
             "indoors": True,
-            "terrain": "tile floor",
+            "terrain": "concrete",
             "exits": [
-                {"direction": "east", "roomId": 10},
-                
+                {"direction": "east", "roomId": 52},
+                {"direction": "west", "roomId": 50},
+                {"direction": "north", "roomId": 18},
             ],
             "objects": [
                 #O.spawn(""),
@@ -1266,12 +1267,13 @@ ROOMS: dict[int, Room] = {
         {
             "number": 52,
             "name": "The outside",
-            "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is a wall\n,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
+            "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is more outside\n,to the north is the 6th grade classroom, east is more outside, up is the ceiling, \n down is the floor, and south is nothing yet.",
             "indoors": True,
-            "terrain": "tile floor",
+            "terrain": "concrete",
             "exits": [
-                {"direction": "east", "roomId": 10},
-                
+                {"direction": "east", "roomId": 53},
+                {"direction": "west", "roomId": 51},
+                {"direction": "north", "roomId": 20},
             ],
             "objects": [
                 #O.spawn(""),
@@ -1290,12 +1292,13 @@ ROOMS: dict[int, Room] = {
         {
             "number": 53,
             "name": "The outside",
-            "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is more \noutside, to the north is a door to the hallway inside, \neast is more outside, up is the ceiling, \n down is the floor, and south is nothing yet.",
             "indoors": True,
-            "terrain": "tile floor",
+            "terrain": "concrete",
             "exits": [
-                {"direction": "east", "roomId": 10},
-                
+                {"direction": "east", "roomId": 54},
+                {"direction": "west", "roomId": 52},
+                {"direction": "north", "roomId": 22},
             ],
             "objects": [
                 #O.spawn(""),
@@ -1314,12 +1317,13 @@ ROOMS: dict[int, Room] = {
         {
             "number": 54,
             "name": "The outside",
-            "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is more outside,to the north is \nthe highschool history classroom, east is more outside, up is the ceiling, \n down is the floor, and south is nothing yet.",
             "indoors": True,
-            "terrain": "tile floor",
+            "terrain": "concrete",
             "exits": [
-                {"direction": "east", "roomId": 10},
-                
+                {"direction": "north", "roomId": 27},
+                {"direction": "east", "roomId": 55},
+                {"direction": "west", "roomId": 53},
             ],
             "objects": [
                 #O.spawn(""),
@@ -1338,9 +1342,9 @@ ROOMS: dict[int, Room] = {
         {
             "number": 55,
             "name": "The outside",
-            "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is more outside,to the north\n is a the 7th-8th history classroom, east is nothing yet, up is the ceiling, \n down is the floor, and south is nothing yet.",
             "indoors": True,
-            "terrain": "tile floor",
+            "terrain": "concrete",
             "exits": [
                 {"direction": "east", "roomId": 10},
                 
