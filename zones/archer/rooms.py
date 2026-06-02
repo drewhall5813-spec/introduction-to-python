@@ -24,7 +24,7 @@ ROOMS: dict[int, Room] = {
             "terrain": "floors, rooms, stairs, hallways, ceiling, and walls",
             "exits": [
                 {"direction": "north", "roomId": 2},
-                {"direction": "south", "roomId": 99002, "external": True},
+                {"direction": "south", "roomId": 99001, "external": True},
                 {"direction": "east", "roomId": 3},
                 {"direction": "west", "roomId": 4},
                 {"direction": "up", "roomId": 6},
@@ -225,6 +225,9 @@ ROOMS: dict[int, Room] = {
                 ],
                 "mobs": [ 
                     M.spawn("&BBlue Slime&N"),
+                ],
+                "objects": [
+                    O.spawn("Sack of the Void"),
                 ],
             }
         ),
