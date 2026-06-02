@@ -26,7 +26,7 @@ ROOMS: dict[int, Room] = {
             "exits": [
                 {"direction": "north", "roomId": 2},
                 {"direction": "up", "roomId": 99002, "external": True}
-                
+                {"direction": "east", "roomId": 50},
             ],
             "objects": [
               #  O.spawn(""),
@@ -651,7 +651,7 @@ ROOMS: dict[int, Room] = {
             "number": 27,
             "name": "Highschool History classroom",
             "description": "This is Ms. Allison's highschool history \n classroom. Only boring highschoolers hang in here.\n To the west is a wall,to the north is a wall, east is a wall, up is the ceiling, \n down is the floor, and south is a door to the outside of the building.",         
-            "indoors" True,
+            "indoors": True,
             "terrain": "concrete",
             "exits": [
                 {"direction": "south", "roomId": 54},
@@ -1241,8 +1241,8 @@ ROOMS: dict[int, Room] = {
     51: Room(
         {
             "number": 51,
-            "name": "Girls bathroom",
-            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "name": "The outside",
+            "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is more of the outside, to the \nnorth is a door to the kindergarten classroom,\n east is more of the outside, up is the ceiling, \n down is the floor, and south is nothing for now.",
             "indoors": True,
             "terrain": "tile floor",
             "exits": [
@@ -1265,8 +1265,8 @@ ROOMS: dict[int, Room] = {
     52: Room(
         {
             "number": 52,
-            "name": "Girls bathroom",
-            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "name": "The outside",
+            "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is a wall\n,to the north is a wall, east is the hallway, up is the ceiling, \n down is the floor, and south is a wall.",
             "indoors": True,
             "terrain": "tile floor",
             "exits": [
@@ -1289,8 +1289,8 @@ ROOMS: dict[int, Room] = {
     53: Room(
         {
             "number": 53,
-            "name": "Girls bathroom",
-            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "name": "The outside",
+            "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
             "indoors": True,
             "terrain": "tile floor",
             "exits": [
@@ -1313,8 +1313,8 @@ ROOMS: dict[int, Room] = {
     54: Room(
         {
             "number": 54,
-            "name": "Girls bathroom",
-            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "name": "The outside",
+            "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
             "indoors": True,
             "terrain": "tile floor",
             "exits": [
@@ -1337,8 +1337,8 @@ ROOMS: dict[int, Room] = {
     55: Room(
         {
             "number": 55,
-            "name": "Girls bathroom",
-            "description": "This is the girls bathroom only for girls. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
+            "name": "The outside",
+            "description": "This is the outside of the school.\n More of it will be unlocked shortly. To the west is a wall,to the north is a wall, east is the hallway, up is the ceiling, /n down is the floor, and south is a wall.",
             "indoors": True,
             "terrain": "tile floor",
             "exits": [
