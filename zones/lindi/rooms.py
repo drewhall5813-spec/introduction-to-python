@@ -16,7 +16,7 @@ ROOMS: dict[int, Room] = {
             #O.spawn("water bottle"),
             #O.spawn("pitch fork")
         ],
-        "mobs": ["malcom"],
+        "mobs": [M.spawn("malcom")],
     }),
     6: Room({
         "number": 6,
@@ -40,7 +40,7 @@ ROOMS: dict[int, Room] = {
             {"direction": "north", "roomId": 1},
         ],
         "objects": [],
-        "mobs": ["The Beast of Geometry and Algebra"],
+        #"mobs": ["The Beast of Geometry and Algebra"],
     }),
     8: Room({
         "number": 8,
@@ -212,7 +212,7 @@ ROOMS: dict[int, Room] = {
             {"direction": "south", "roomId": 17},
         ],
         "objects": [],
-        "mobs": ["Enemy"],
+        "mobs": [M.spawn("Enemy")],
     }),
 
 }
