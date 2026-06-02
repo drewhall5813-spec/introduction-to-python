@@ -143,9 +143,9 @@ ROOMS: dict[int, Room] = {
         {
             "number": 8,
             "name": "Sword Shrine",
-            "description": "You ascend into the room and look around. You are walking on &Xdark&N &Wclouds&N."
-                           "In the middle of the room there is a stone triangular stone platform with a &Bshining&N &Csword&N in the middle."
-                           "Behind the platform lies &mInanis&N the &XVoid&N &mDragon&N, protecting the &Bshining&N &Csword&N.",
+            "description": ("You ascend into the room and look around. You are walking on &Xdark&N &Wclouds&N.",
+                           "In the middle of the room there is a stone triangular stone platform with a &Bshining&N &Csword&N in the middle.",
+                           "Behind the platform lies &mInanis&N the &XVoid&N &mDragon&N, protecting the &Bshining&N &Csword&N."),
             "indoors": False,
             "terrain": "cloud",
             "exits": [
