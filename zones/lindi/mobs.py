@@ -133,6 +133,21 @@ TEMPLATES: dict[str, dict] = {
         "killable": True,
         "wander": False,
     },
+    "artenurite": {
+        "name": "artenurite",
+        "key_words": ("artenurite"),
+        "room_description": "artenurite stands with his bold frame.&N",
+        "description": (
+            "artenurite is a battle hardened warrior, awaiting a proper opponent"
+        ),
+        "race": "Human",
+        "class": "Bully",
+        "level": 50,
+        "stats": [90, 90, 90, 90, 90, 90],
+        "aggro": False,
+        "killable": True,
+        "wander": False,
+    },
 }
 
 # Module-level spawn — rooms.py calls  M.spawn("void_guardian")
