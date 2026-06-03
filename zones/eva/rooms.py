@@ -29,7 +29,7 @@ ROOMS: dict[int, Room] = {
     1: Room({
         "number": 1,
         "name": "The Oakhurst Tavern",
-        "description": "A &yroadside tavern&N, it sits at the edge of a &gpinewood forest&N.\nThe interior is warmed by a large &rfireplace&N on the left wall and the scents of &mvarious&N &Yalcohols&N waft about the room.&N\nIt lt looks as if it may have been someones house at somepoint ",
+        "description": "A &yroadside tavern&N, it sits at the edge of a &gpinewood forest&N.\nThe interior is warmed by a large &rfireplace&N on the left wall and the scents of &mvarious&N &Yalcohols&N waft about the room.&N\nIt lt looks as if it may have been someones house at somepoint in the past ",
         "indoors": True,
         "terrain": "wooden floor",
         "exits": [
@@ -40,33 +40,33 @@ ROOMS: dict[int, Room] = {
             {"direction": "south", "roomId": 2},
         ],
         "objects": [
-            O.spawn("assorted_bottles__ull"),
-            O.spawn("silver_sword"),
+            O.spawn("Assorted_Bottles__Full"),
+            O.spawn("Silver_Sword"),
         ],
         "mobs": [                           # was [spawn1][spawn2] — that's list subscription, not a list
-            M.spawn("fanciful_Bard"),
-            M.spawn("red kobold"),
+            M.spawn("Fanciful_Bard"),
+            M.spawn("Red_Kobold"),
             
         ],
         }),
         2: Room({
         "number": 2,
         "name": "Tavern Courtyard",
-        "description": "This courtyard, which is a bit larger than the tavern itself, has a perimeter of &gshrubbery&N that connects to the back of the tavern wall.\nA &Xcobblestone path&N stretches from the door and surrounds a &ggiant oak&N in the middle of the room, the rest of the courtyard is covered in &Gshort grass&N.\nThe ancient &goak tree&N in the center provides a sense if safety and the patches of &YW&yy&Wl&Yd&yf&Wl&Yo&yw&We&Yr&ys&N dotted about give it a light and cheery atmosphere.",
+        "description": "This courtyard, which is a bit larger than the tavern itself, has a perimeter of &gshrubbery&N that connects to the back of the tavern wall.\nA &Xcobblestone path&N stretches from the door and surrounds a &ggiant pine&N in the middle of the room, the rest of the courtyard is covered in &Gshort grass&N.\nThe ancient &gpine tree&N in the center provides a sense if safety and the patches of &YW&yy&Wl&Yd&yf&Wl&Yo&yw&We&Yr&ys&N dotted about give it a light and cheery atmosphere.",
         "indoors": False,
         "terrain": "grass",
         "exits": [
             {"direction": "north", "roomId": 1},
         ],
         "objects": [
-            O.spawn("giant_oak_tree"),
-            O.spawn("tables"),
-            O.spawn("wyldflowers"),
+            O.spawn("Giant_Pine_Tree"),
+            O.spawn("Tables"),
+            O.spawn("Wyldflowers"),
         ],
         "mobs": [
-            M.spawn("excited_child"),
-            M.spawn("large_orange_cat"),
-            M.spawn("eclectic_rouge"),
+            M.spawn("Excited_Child"),
+            M.spawn("Large_Orange_Cat"),
+            M.spawn("Eclectic_Rouge"),
          ], 
 ##############################################################################################################################################
 
