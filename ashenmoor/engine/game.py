@@ -560,7 +560,14 @@ class GameState:
                 if mob.aggressive else
                 f"&+R{mob.name}&w sees you and attacks!&N\n&x(Auto-attack fires every 4 seconds.)&N"
             )
-            first_out, _, first_hp = self._combat_tick_inner()
+            room_aggro = (
+                f"&+R{mob.name}&w spots &w{self._player}&N and attacks!&N"
+                if mob.aggressive else
+                f"&+R{mob.name}&w sees &w{self._player}&N and attacks!&N"
+            )
+            self._broadcast_to_room(room_aggro)
+            first_out, first_room, first_hp = self._combat_tick_inner()
+            if first_room: self._broadcast_to_room(first_room)
             parts = [aggro_msg]
             if first_out: parts.append(first_out)
             if first_hp:  parts.append(first_hp)
@@ -1223,7 +1230,14 @@ class GameState:
                 if mob.aggressive else
                 f"&+R{mob.name}&w recognises you and attacks!&N\n&x(Auto-attack fires every 4 seconds.)&N"
             )
-            first_out, _, first_hp = self._combat_tick_inner()
+            room_aggro = (
+                f"&+R{mob.name}&w notices &w{self._player}&N and attacks!&N"
+                if mob.aggressive else
+                f"&+R{mob.name}&w recognises &w{self._player}&N and attacks!&N"
+            )
+            self._broadcast_to_room(room_aggro)
+            first_out, first_room, first_hp = self._combat_tick_inner()
+            if first_room: self._broadcast_to_room(first_room)
             parts = [aggro_msg]
             if first_out: parts.append(first_out)
             if first_hp:  parts.append(first_hp)
@@ -1257,9 +1271,14 @@ class GameState:
             f"&wThey appear to be &N{condition_str(target)}&w.&N\n"
             f"&x(Auto-attack fires every 4 seconds. Type a power to use it immediately.)&N"
         )
+        # Broadcast engage message to room observers
+        self._broadcast_to_room(
+            f"&w{char.name}&N engages &+W{target.name}&w in combat!&N"
+        )
 
         # Fire the first round immediately
         first_out, first_room, first_hp = self._combat_tick_inner()
+        if first_room: self._broadcast_to_room(first_room)
         parts = [engage_msg]
         if first_out:
             parts.append(first_out)
