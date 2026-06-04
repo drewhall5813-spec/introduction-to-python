@@ -99,6 +99,7 @@ _COMMAND_MAP: dict[str, str] = {
     "drop": "drop",
     "put": "put", "put_on": "wear",
     "open": "open", "close": "close",
+    "lock": "lock", "unlock": "unlock",
     "wear":   "wear", "wield": "wear", "hold": "wear",
     "offhand":    "offhand",    "oh":  "offhand",
     "attributes": "attributes", "att": "attributes",
@@ -324,6 +325,10 @@ class GameState:
             result = self._cmd_open(args); self._save_player(); return result
         elif verb == "close":
             result = self._cmd_close(args); self._save_player(); return result
+        elif verb == "lock":
+            result = self._cmd_lock(args); self._save_player(); return result
+        elif verb == "unlock":
+            result = self._cmd_unlock(args); self._save_player(); return result
         elif verb == "attributes": return self._cmd_attributes(args)
         elif verb == "wimpy":      return self._cmd_wimpy(args)
         elif verb == "offhand":
@@ -1460,6 +1465,12 @@ class GameState:
         room = self.current_room
         if room is None: return "&RYou are nowhere.&N"
 
+        # "get all[.keyword] [container]"
+        if args[0].lower().startswith("all"):
+            result = self._cmd_get_all(args, char, room)
+            self._save_player()
+            return result
+
         if "from" in args:
             sep      = args.index("from")
             item_str = " ".join(args[:sep])
@@ -1478,14 +1489,72 @@ class GameState:
             if not container.is_open: return f"&wThe &N{container.name}&w is closed.&N"
             item = _find_in_container(item_str, container)
             if item is None: return f"&wYou don't see '&W{item_str}&w' in &N{container.name}&w.&N"
+            if len(char.inventory) >= _max_inventory(char):
+                return "&wYou can hold no more items.&N"
             container.contents.remove(item); char.inventory.append(item)
             return f"&wYou take &N{item.name}&w from &N{container.name}&w.&N"
 
         item = find_target(" ".join(args), room, self.locations, self.characters)
         if item is None: return f"&wYou don't see any '&W{' '.join(args)}&w' here.&N"
         if not getattr(item, "take", False): return "&wYou can't pick that up.&N"
+        if len(char.inventory) >= _max_inventory(char):
+            return "&wYou can hold no more items.&N"
         room.objects.remove(item); char.inventory.append(item)
         return f"&wYou pick up &N{item.name}&w.&N"
+
+    def _cmd_get_all(self, args, char, room) -> str:
+        """
+        get all [container]
+        get all.keyword [container]
+
+        Moves every matching takeable item from the container (or room floor)
+        into the player's inventory, stopping when the inventory is full.
+        """
+        from ..world.objects import Container as ContClass
+        spec    = args[0].lower()
+        keyword = spec.split(".", 1)[1].strip() if "." in spec else None
+
+        # Resolve source: container or room floor
+        container = None
+        if len(args) >= 2:
+            cont_str  = " ".join(args[1:])
+            container = _find_container(cont_str, char, room)
+            if container is None:
+                return f"&wYou don't see any container called '&W{cont_str}&w'.&N"
+            if not isinstance(container, ContClass):
+                return f"&w{container.name}&w is not a container.&N"
+            if not container.is_open:
+                return f"&wThe &N{container.name}&w is closed.&N"
+            source = list(container.contents)
+        else:
+            source = list(room.objects)
+
+        max_inv = _max_inventory(char)
+        msgs    = []
+        full    = False
+
+        for item in source:
+            if keyword and not _item_matches(item, keyword):
+                continue
+            if not getattr(item, "take", False):
+                continue
+            if len(char.inventory) >= max_inv:
+                msgs.append("&wYou can hold no more items.&N")
+                full = True
+                break
+            if container:
+                container.contents.remove(item)
+            else:
+                room.objects.remove(item)
+            char.inventory.append(item)
+            msgs.append(f"&wYou pick up &N{item.name}&w.&N")
+
+        if not msgs:
+            src = f"&N{container.name}" if container else "the room"
+            what = f"'{keyword}'" if keyword else "anything"
+            return f"&wYou don't see {what} to take{' in ' + src if container else ' here'}.&N"
+
+        return "\n".join(msgs)
 
     def _cmd_drop(self, args):
         if not args: return "&wDrop what?&N"
@@ -1493,6 +1562,23 @@ class GameState:
         if not char: return "&RNo character found.&N"
         room = self.current_room
         if room is None: return "&RYou are nowhere.&N"
+
+        if args[0].lower() == "all":
+            keyword = args[0][4:].strip() if len(args[0]) > 3 and "." in args[0] else None
+            to_drop = [
+                i for i in list(char.inventory)
+                if not keyword or _item_matches(i, keyword)
+            ]
+            if not to_drop:
+                what = f"'{keyword}'" if keyword else "anything"
+                return f"&wYou have nothing matching {what} to drop.&N"
+            msgs = []
+            for item in to_drop:
+                char.inventory.remove(item)
+                room.objects.append(item)
+                msgs.append(f"&wYou drop &N{item.name}&w.&N")
+            return "\n".join(msgs)
+
         item = _find_in_inventory(" ".join(args), char)
         if item is None: return f"&wYou're not carrying '&W{' '.join(args)}&w'.&N"
         char.inventory.remove(item); room.objects.append(item)
@@ -1503,6 +1589,13 @@ class GameState:
         char = self.characters.get(self._player)
         if not char: return "&RNo character found.&N"
         room = self.current_room
+
+        # "put all[.keyword] <container>"
+        if args[0].lower().startswith("all"):
+            result = self._cmd_put_all(args, char, room)
+            self._save_player()
+            return result
+
         if len(args) < 2: return "&wUsage: &Wput <item> <container>&N"
         if "in" in args:
             sep = args.index("in"); item_str = " ".join(args[:sep]); cont_str = " ".join(args[sep+1:])
@@ -1521,6 +1614,52 @@ class GameState:
         char.inventory.remove(item); container.contents.append(item)
         return f"&wYou put &N{item.name}&w into &N{container.name}&w.&N"
 
+    def _cmd_put_all(self, args, char, room) -> str:
+        """
+        put all <container>
+        put all.keyword <container>
+
+        Moves every matching item from inventory into the container.
+        """
+        from ..world.objects import Container as ContClass
+        spec    = args[0].lower()
+        keyword = spec.split(".", 1)[1].strip() if "." in spec else None
+
+        if len(args) < 2:
+            return "&wPut all into what?&N"
+
+        cont_str  = " ".join(args[1:])
+        container = _find_container(cont_str, char, room)
+        if container is None:
+            return f"&wYou don't see any container called '&W{cont_str}&w'.&N"
+        if not isinstance(container, ContClass):
+            return f"&w{container.name}&w is not a container.&N"
+        if not container.is_open:
+            return f"&wThe &N{container.name}&w is closed.&N"
+
+        to_put = [
+            i for i in list(char.inventory)
+            if i is not container
+            and (not keyword or _item_matches(i, keyword))
+        ]
+
+        if not to_put:
+            what = f"'{keyword}'" if keyword else "anything"
+            return f"&wYou have nothing matching {what} to put away.&N"
+
+        msgs = []
+        for item in to_put:
+            if not container.can_fit(item):
+                msgs.append(
+                    f"&w{container.name}&w is too full for &N{item.name}&w.&N"
+                )
+                break
+            char.inventory.remove(item)
+            container.contents.append(item)
+            msgs.append(f"&wYou put &N{item.name}&w into &N{container.name}&w.&N")
+
+        return "\n".join(msgs)
+
     def _cmd_open(self, args):
         if not args: return "&wOpen what?&N"
         char = self.characters.get(self._player); room = self.current_room
@@ -1530,6 +1669,8 @@ class GameState:
         if container is None: return f"&wYou don't see any '&W{target_str}&w' here.&N"
         if not isinstance(container, Container): return f"&w{container.name}&w is not something you can open.&N"
         if container.is_open: return f"&w{container.name}&w is already open.&N"
+        if getattr(container, "locked", False):
+            return f"&w{container.name}&w is locked.&N"
         container.is_open = True
         return f"&wYou open &N{container.name}&w.&N"
 
@@ -1544,6 +1685,54 @@ class GameState:
         if not container.is_open: return f"&w{container.name}&w is already closed.&N"
         container.is_open = False
         return f"&wYou close &N{container.name}&w.&N"
+
+    def _cmd_unlock(self, args):
+        if not args: return "&wUnlock what?&N"
+        char = self.characters.get(self._player); room = self.current_room
+        from ..world.objects import Container
+        target_str = " ".join(args)
+        container = _find_container(target_str, char, room)
+        if container is None: return f"&wYou don't see any '&W{target_str}&w' here.&N"
+        if not isinstance(container, Container): return f"&w{container.name}&w is not something you can unlock.&N"
+        if not getattr(container, "locked", False): return f"&w{container.name}&w is not locked.&N"
+        key_name = getattr(container, "key_name", None)
+        if not key_name:
+            return f"&w{container.name}&w has no keyhole.&N"
+        key = next(
+            (i for i in char.inventory
+             if getattr(i, "is_key", False)
+             and getattr(i, "key_name", None) == key_name),
+            None,
+        )
+        if key is None:
+            return f"&wYou don't have the right key for &N{container.name}&w.&N"
+        container.locked = False
+        return f"&wYou unlock &N{container.name}&w with &N{key.name}&w.&N"
+
+    def _cmd_lock(self, args):
+        if not args: return "&wLock what?&N"
+        char = self.characters.get(self._player); room = self.current_room
+        from ..world.objects import Container
+        target_str = " ".join(args)
+        container = _find_container(target_str, char, room)
+        if container is None: return f"&wYou don't see any '&W{target_str}&w' here.&N"
+        if not isinstance(container, Container): return f"&w{container.name}&w is not something you can lock.&N"
+        if getattr(container, "locked", False): return f"&w{container.name}&w is already locked.&N"
+        key_name = getattr(container, "key_name", None)
+        if not key_name:
+            return f"&w{container.name}&w has no keyhole.&N"
+        key = next(
+            (i for i in char.inventory
+             if getattr(i, "is_key", False)
+             and getattr(i, "key_name", None) == key_name),
+            None,
+        )
+        if key is None:
+            return f"&wYou don't have the right key for &N{container.name}&w.&N"
+        if container.is_open:
+            container.is_open = False
+        container.locked = True
+        return f"&wYou lock &N{container.name}&w with &N{key.name}&w.&N"
 
     def _cmd_examine(self, args):
         if not args: return "&wExamine what?&N"
@@ -1561,9 +1750,11 @@ class GameState:
         if " ".join(args) == "all":
             wearable = [it for it in list(char.inventory) if getattr(it, "wear_on", None) is not None]
             if not wearable: return "&wYou have nothing to wear.&N"
+            msgs = []
             for it in wearable:
-                if it in char.inventory: self._wear_one(char, it)
-            return "&wYou wear your equipment.&N"
+                if it in char.inventory:
+                    msgs.append(self._wear_one(char, it))
+            return "\n".join(msgs) if msgs else "&wNothing could be worn.&N"
         item = _find_in_inventory(" ".join(args), char)
         if item is None: return f"&wYou're not carrying '&W{' '.join(args)}&w'.&N"
         return self._wear_one(char, item)
@@ -1661,7 +1852,7 @@ class GameState:
         inv_weight = sum(getattr(i, "weight", 0) for i in char.inventory)
         max_weight = max(1, str_eff * 2)
         inv_items  = len(char.inventory)
-        max_items  = max(5, dex_eff // 5)
+        max_items  = _max_inventory(char)
         load_pct   = max(inv_weight / max_weight * 100, inv_items / max_items * 100)
 
         if load_pct <= 25:   lc, lm = "&+G", "Not a problem"
@@ -1737,6 +1928,33 @@ class GameState:
         if not args: return "&wRemove what?&N"
         char = self.characters.get(self._player)
         if not char: return "&RNo character found.&N"
+
+        if args[0].lower() == "all":
+            from ..world.equipment import DUAL_SLOTS
+            max_inv = _max_inventory(char)
+            msgs    = []
+            # Collect all equipped items in slot order
+            for slot in list(char.equipment.keys()):
+                equipped = char.equipment.get(slot)
+                if equipped is None:
+                    continue
+                items = equipped if isinstance(equipped, list) else [equipped]
+                for item in list(items):
+                    if len(char.inventory) >= max_inv:
+                        msgs.append("&wYou can hold no more items.&N")
+                        return "\n".join(msgs) if msgs else "&wNothing to remove.&N"
+                    # Remove from slot
+                    if slot in DUAL_SLOTS:
+                        lst = char.equipment[slot]
+                        lst.remove(item)
+                        if not lst:
+                            del char.equipment[slot]
+                    else:
+                        del char.equipment[slot]
+                    char.inventory.append(item)
+                    msgs.append(f"&wYou remove &N{item.name}&w.&N")
+            return "\n".join(msgs) if msgs else "&wYou are not wearing anything.&N"
+
         item, slot = _find_in_equipment(" ".join(args), char)
         if item is None: return f"&wYou're not wearing '&W{' '.join(args)}&w'.&N"
         from ..world.equipment import DUAL_SLOTS
@@ -1752,7 +1970,8 @@ class GameState:
         char = self.characters.get(self._player)
         if not char: return "&RNo character found.&N"
         if not char.inventory: return "&wYou are carrying nothing.&N"
-        return "\n".join(["&wYou are carrying:&N"] + [f"  {i.name}" for i in char.inventory])
+        lines = _stack_items(char.inventory)
+        return "\n".join(["&wYou are carrying:&N"] + [f"  {l}" for l in lines])
 
     def _cmd_equipment(self):
         char = self.characters.get(self._player)
@@ -1866,10 +2085,57 @@ _SLOT_FULL: dict[str, str] = {
 def _slot_full_msg(slot: str) -> str:
     return _SLOT_FULL.get(slot, "&wThat slot is already in use.&N")
 
+def _max_inventory(char) -> int:
+    """
+    Maximum items a character can carry, based on computed DEX.
+
+      dex <= 50          →  8 slots
+      51 <= dex <= 60    →  9 slots  (+1)
+      61 <= dex <= 70    → 10 slots  (+2)
+      ... +1 per 10 points above 50
+
+    Formula: 8 + max(0, (dex - 41) // 10)
+      dex  50 → 8 + (9//10)  = 8 + 0 = 8
+      dex  51 → 8 + (10//10) = 8 + 1 = 9
+      dex  60 → 8 + (19//10) = 8 + 1 = 9
+      dex  61 → 8 + (20//10) = 8 + 2 = 10
+      dex  90 → 8 + (49//10) = 8 + 4 = 12
+      dex 100 → 8 + (59//10) = 8 + 5 = 13
+      dex 120 → 8 + (79//10) = 8 + 7 = 15
+    """
+    dex   = char.computed_stat("dex")
+    bonus = max(0, (dex - 41) // 10)
+    return 8 + bonus
+
+
+def _stack_items(items) -> list[str]:
+    """
+    Group items by name. Returns display lines with &w[&WN&w]&N prefix for stacks > 1.
+    Preserves first-seen order.
+    """
+    order  = []
+    counts = {}
+    for item in items:
+        key = item.name
+        if key not in counts:
+            order.append(key)
+            counts[key] = 0
+        counts[key] += 1
+    lines = []
+    for key in order:
+        n = counts[key]
+        if n > 1:
+            lines.append(f"&w[&W{n}&w]&N {key}")
+        else:
+            lines.append(key)
+    return lines
+
+
 def _look_in_container(c) -> str:
     if not c.is_open: return f"&N{c.name}&w is closed.&N"
     if not c.contents: return f"&wYou look in &N{c.name}&w, it is empty.&N"
-    return "\n".join([f"&wYou look in &N{c.name}&w, it contains:&N"] + [f"  {i.name}" for i in c.contents])
+    lines = _stack_items(c.contents)
+    return "\n".join([f"&wYou look in &N{c.name}&w, it contains:&N"] + [f"  {l}" for l in lines])
 
 def _examine_container(c) -> str:
     lines = []
@@ -1880,12 +2146,13 @@ def _examine_container(c) -> str:
 
 def _find_container(target_str, char, room):
     _, keyword = parse_target(target_str)
-    if room is not None:
-        for obj in room.objects:
-            if _item_matches(obj, keyword): return obj
+    # Inventory first — a held/carried container takes priority over one on the floor
     if char is not None:
         for item in char.inventory:
             if _item_matches(item, keyword): return item
+    if room is not None:
+        for obj in room.objects:
+            if _item_matches(obj, keyword): return obj
     return None
 
 def _find_in_container(target_str, container):

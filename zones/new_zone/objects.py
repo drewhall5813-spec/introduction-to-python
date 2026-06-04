@@ -23,6 +23,40 @@ TEMPLATES: dict[str, dict] = {
         "weight":              0,
     },
 
+    "treasure_chest": {
+        "spawn_as":        Container,
+        "name":            "&ya treasure chest&N",
+        "key_words":       ("chest", "treasure"),
+        "room_description":"A sturdy oak chest sits here.",
+        "no_take":         True,       # can't pick it up
+        "is_open":         False,      # starts closed
+        "locked":          True,       # starts locked
+        "key_name":        "chest key",
+        "capacity":        50.0,
+        "weight":          20.0,
+        "contents": [                  # template keys — spawned automatically
+           "windsong",
+           "windsong",
+           "dimensional_vault",
+           "stoneskin_scroll", 
+           "stoneskin_scroll", 
+           "stoneskin_scroll", 
+           "stoneskin_scroll", 
+           "stoneskin_scroll", 
+           "stoneskin_scroll", 
+           "stoneskin_scroll" 
+        ],
+    },
+
+    "chest_key": {
+        "spawn_as":        Item,
+        "name":            "&ya small brass key&N",
+        "key_words":       ("key", "brass", "small"),
+        "room_description":"A small &ybrass key&N lies here.",
+        "is_key":          True,
+        "key_name":        "chest key",   # must match chest's key_name exactly
+        "weight":          0.1,
+    },
     "silken_sack": {
         "spawn_as":         Container,
         "name":             "a &rtattered &csilken sack&N",
@@ -37,9 +71,9 @@ TEMPLATES: dict[str, dict] = {
 
     "dimensional_vault": {
         "spawn_as":            Container,
-        "name":                "&ca dimensional vault&N",
+        "name":                "&La dimensional vault&N",
         "key_words":           ("dimensional", "vault"),
-        "room_description":    "&cA dimensional vault floats here, humming softly.&N",
+        "room_description":    "&LA dimensional vault floats here, humming softly.&N",
         "description":         "A shimmering vault that exists partially outside this dimension.\nIt can hold an extraordinary amount without adding to your burden.",
         "capacity":            1000.0,
         "weightless_capacity": 1000.0,
@@ -49,7 +83,7 @@ TEMPLATES: dict[str, dict] = {
 
     "stoneskin_scroll": {
         "spawn_as": Scroll,
-        "name": "&wa &Yscroll&N of &Lstoneskin&N",
+        "name": "&wa &Lstoneskin&N &Yscroll&N",
         "key_words": ("parchment", "rolled", "stoneskin", "scroll"),
         "room_description": "&wa rolled up piece of &Yparchment&N lies here&N",
         "effects": [{"effect": "apply_stoneskin", "duration": 150},]
