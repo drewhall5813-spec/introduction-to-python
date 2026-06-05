@@ -50,6 +50,9 @@ class Item(Object):
         self.save_mods: dict[str,int] = d.get("save_mods", {})
         self.ac_bonus:  int           = d.get("ac_bonus",  0)
         self.armor_type: str | None   = d.get("armor_type", None)
+        # Key identity — items with is_key=True can lock/unlock containers
+        self.is_key:    bool           = d.get("is_key",    False)
+        self.key_name:  str | None     = d.get("key_name",  None)
 
         if self.wear_on is not None and self.wear_on not in VALID_WEAR_ON:
             raise ValueError(
@@ -106,6 +109,11 @@ class Container(Item):
         self.contents:            list  = list(d.get("contents",       []))
         self.is_open:             bool  = d.get("is_open",             True)
         self.is_shield:           bool  = False
+        # no_take: can be examined/searched but cannot be picked up
+        self.take:                bool  = not d.get("no_take",         False)
+        # Lock / key system
+        self.locked:              bool  = d.get("locked",              False)
+        self.key_name:  str | None      = d.get("key_name",            None)
 
     @property
     def contents_weight(self) -> float:
