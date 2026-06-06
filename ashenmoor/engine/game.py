@@ -490,6 +490,23 @@ class GameState:
             xp_msg = f"&wYou gain &W{exp:,}&w xp  (&W{player.xp:,}&w total | &W{pct}&w% into level)&N"
             player_msgs.append(xp_msg)
             player_msgs.extend(apply_level_up(player))
+            # Spawn corpse in the room
+            from ..world.corpse import Corpse
+            corpse = Corpse(target)
+            room.objects.append(corpse)
+            if corpse.contents:
+                player_msgs.append(
+                    "&xA corpse is left behind. "
+                    "Type &Wexa corpse&x to search it.&N"
+                )
+                room_msgs.append(
+                    f"&xThe corpse of {target.name}&x lies here.&N"
+                )
+            else:
+                player_msgs.append("&xA corpse is left behind.&N")
+                room_msgs.append(
+                    f"&xThe corpse of {target.name}&x lies here.&N"
+                )
             self._save_player()
         elif player.hp <= 0:
             self.fighting.pop(self._player, None)
@@ -760,6 +777,18 @@ class GameState:
                     parts.append(f"&+W{target.name}&w crumples and dies!&N")
                     parts.append(f"&wYou gain &W{exp:,}&w xp  (&W{char.xp:,}&w total | &W{pct}&w% into level)&N")
                     parts.extend(apply_level_up(char))
+                    # Spawn corpse
+                    from ..world.corpse import Corpse
+                    corpse = Corpse(target)
+                    if room:
+                        room.objects.append(corpse)
+                    if corpse.contents:
+                        parts.append(
+                            "&xA corpse is left behind. "
+                            "Type &Wexa corpse&x to search it.&N"
+                        )
+                    else:
+                        parts.append("&xA corpse is left behind.&N")
                     self._save_player()
                 else:
                     parts.append(f"{hp_status(char)}   {hp_status(target)}")
@@ -1673,7 +1702,11 @@ class GameState:
             if item is None: return f"&wYou don't see '&W{item_str}&w' in &N{container.name}&w.&N"
             if len(char.inventory) >= _max_inventory(char):
                 return "&wYou can hold no more items.&N"
-            container.contents.remove(item); char.inventory.append(item)
+            container.contents.remove(item)
+            if getattr(item, "_is_coins", False):
+                _merge_coins(char, item)
+                return f"&wYou pick up {item.name}.&N"
+            char.inventory.append(item)
             return f"&wYou take &N{item.name}&w from &N{container.name}&w.&N"
 
         item = find_target(" ".join(args), room, self.locations, self.characters)
@@ -1728,8 +1761,12 @@ class GameState:
                 container.contents.remove(item)
             else:
                 room.objects.remove(item)
-            char.inventory.append(item)
-            msgs.append(f"&wYou pick up &N{item.name}&w.&N")
+            if getattr(item, "_is_coins", False):
+                _merge_coins(char, item)
+                msgs.append(f"&wYou pick up {item.name}.&N")
+            else:
+                char.inventory.append(item)
+                msgs.append(f"&wYou pick up &N{item.name}&w.&N")
 
         if not msgs:
             src = f"&N{container.name}" if container else "the room"
@@ -1923,6 +1960,8 @@ class GameState:
         instance = find_target(target_str, room, self.locations, self.characters) if room else None
         if instance is None and char: instance = _find_in_inventory(target_str, char)
         if instance is None: return f"&wYou don't see any '&W{target_str}&w' here.&N"
+        if getattr(instance, "is_corpse", False):
+            return instance.examine()
         return self._describe(instance, detailed=True)
 
     def _cmd_wear(self, args):
@@ -2372,6 +2411,17 @@ def _stack_items(items) -> list[str]:
         else:
             lines.append(key)
     return lines
+
+
+def _merge_coins(char, coin_item) -> None:
+    """Add a CoinItem's values directly into the character's coin purse."""
+    purse = getattr(char, "coins", None)
+    if purse is None:
+        char.coins = {"gold": 0, "silver": 0, "copper": 0}
+        purse = char.coins
+    purse["gold"]   = purse.get("gold",   0) + getattr(coin_item, "gold",   0)
+    purse["silver"] = purse.get("silver", 0) + getattr(coin_item, "silver", 0)
+    purse["copper"] = purse.get("copper", 0) + getattr(coin_item, "copper", 0)
 
 
 def _look_in_container(c) -> str:
