@@ -215,6 +215,12 @@ class MudServer:
                     if aggro_out:
                         await client.send(aggro_out)
 
+            # Decay corpses in all rooms (runs once per tick regardless of players)
+            for room in list(self._state.rooms.values()):
+                for obj in list(getattr(room, "objects", [])):
+                    if getattr(obj, "is_corpse", False):
+                        obj.tick(room)
+
             # Send room broadcasts before HP statuses so all combat
             # messages appear together, then the status line last.
             for sender_name, room_id, msg in broadcasts:
