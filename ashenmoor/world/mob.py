@@ -45,6 +45,10 @@ Behaviour:
   killable            bool  False → cannot be attacked (default True)
   perception_prof     bool  adds proficiency bonus to Passive Perception
   has_dialog          bool  True if DIALOGS table has entries for vnum
+
+Gear:
+  inventory   list  item template dicts — loose in bag, fall to corpse
+  equipment   dict  slot → item template dict — worn/wielded, fall to corpse
 """
 
 from __future__ import annotations
@@ -68,10 +72,6 @@ def _roll(dice_str: str) -> int:
 def _resolve_hp(template: dict) -> int:
     """
     Calculate mob max HP from level only.
-
-    Template values (hp, max_hp, hit_dice) are intentionally ignored
-    so all mobs scale consistently regardless of what zone authors put
-    in their dictionaries.
 
     Formula: level × 8 × 5
       Level  1 →   40 HP
@@ -99,25 +99,17 @@ class Mob(Character):
     def __init__(self, template: dict, races: dict | None = None) -> None:
         hp_val = _resolve_hp(template)
 
-        # Resolve races dict so we can validate the mob's race.
         if races is None:
             from ..core.race import RACES as _default_races
             races = _default_races
 
-        # Normalise race — if the template uses a race we haven't
-        # implemented (e.g. "Humanoid", "Beast", "Undead"), fall back to
-        # "Human" so computed_stat() applies no racial multiplier.
         raw_race  = template.get("race", "Human")
         safe_race = raw_race if raw_race in races else "Human"
 
-        # Normalise class — unknown classes (e.g. "Guard", "NPC", "Critter")
-        # fall back to "Fighter" which has STR/CON saves and basic combat.
-        # Mobs never have a dnd-dict so class only affects saving throws.
         from ..dnd.abilities import CLASS_SAVE_PROFS
         raw_class  = template.get("cclass", template.get("class", "Fighter"))
         safe_class = raw_class if raw_class.lower() in CLASS_SAVE_PROFS else "Fighter"
 
-        # Build the Character init dict from the template
         char_dict: dict = {
             "name":      template.get("name",      "something"),
             "race":      safe_race,
@@ -141,9 +133,6 @@ class Mob(Character):
         self.description:      str   = "\n".join(desc) if isinstance(desc, (tuple, list)) else desc
 
         # ── AC override ───────────────────────────────────────────────────
-        # If the template supplies ac=, store it so combat.py's get_ac()
-        # call picks it up via hasattr(mob, 'ac').
-        # If absent, get_ac() calculates from DEX stat + equipment as normal.
         if "ac" in template:
             self.ac: int = int(template["ac"])
 
@@ -163,10 +152,14 @@ class Mob(Character):
         # ── Respawn reference ─────────────────────────────────────────────
         self._template: dict = template
 
-        # ── Interraction with Mobs ────────────────────────────────────────
+        # ── Interaction with Mobs ─────────────────────────────────────────
         self.responses = {k.lower(): v for k, v in template.get("responses", {}).items()}
 
-    # ── D&D Passive Perception ────────────────────────────────────────────
+        # ── Inventory and equipment from template ─────────────────────────
+        from .corpse import load_mob_gear
+        load_mob_gear(self, template)
+
+    # ── D&D Passive Perception ────────────────────────────────────────────────
 
     def passive_perception(self) -> int:
         """
@@ -217,10 +210,14 @@ class Mob(Character):
         return f"{base}, {labels.get(self.position, self.position)}."
 
     def reset(self) -> None:
-        """Restore to full health on zone reset."""
+        """Restore to full health on zone reset, including gear."""
         self.max_hp = _resolve_hp(self._template)
         self.hp     = self.max_hp
         self.memory.clear()
+        self.inventory.clear()
+        self.equipment.clear()
+        from .corpse import load_mob_gear
+        load_mob_gear(self, self._template)
 
     def __repr__(self) -> str:
         return (f"Mob(name={self.name!r}, level={self.level}, "
