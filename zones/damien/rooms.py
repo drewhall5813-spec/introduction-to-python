@@ -156,7 +156,7 @@ ROOMS: dict[int, Room] = {
                 M.spawn("void_dragon"),
             ],
             "objects": [
-                O.spawn("sword_that_seals_the_darkness")
+                O.spawn("sword_that_seals_the_darkness"),
                 O.spawn("sword_that_seals_the_darkness")
             ]
         }
